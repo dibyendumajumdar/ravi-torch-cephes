@@ -67,14 +67,14 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 #define MAXGAM 171.624376956302725
 #endif
 
-extern double torch_cephes_MACHEP, torch_cephes_MINLOG, torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_MACHEP, torch_cephes_MINLOG, torch_cephes_MAXLOG;
 #ifdef ANSIPROT
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_lgam ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_lgam ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_fabs ( double );
 static double incbcf(double, double, double);
 static double incbd(double, double, double);
 static double pseries(double, double, double);
@@ -330,7 +330,7 @@ do
 		r = pk/qk;
 	if( r != 0 )
 		{
-		t = fabs( (ans - r)/r );
+		t = torch_cephes_fabs( (ans - r)/r );
 		ans = r;
 		}
 	else
@@ -385,7 +385,7 @@ t = u;
 n = 2.0;
 s = 0.0;
 z = torch_cephes_MACHEP * ai;
-while( fabs(v) > z )
+while(torch_cephes_fabs(v) > z )
 	{
 	u = (n - b) * x / n;
 	t *= u;

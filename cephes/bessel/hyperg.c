@@ -67,15 +67,15 @@ Copyright 1984, 1987, 1988, 2000 by Stephen L. Moshier
 #include "mconf.h"
 
 #ifdef ANSIPROT
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_lgam ( double );
-extern double torch_cephes_fabs ( double );
-double torch_cephes_hyp2f0 ( double, double, double, int, double * );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_lgam ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_hyp2f0 ( double, double, double, int, double * );
 static double hy1f1p(double, double, double, double *);
 static double hy1f1a(double, double, double, double *);
-double torch_cephes_hyperg (double, double, double);
+CEPHES_API double torch_cephes_hyperg (double, double, double);
 #else
 double torch_cephes_exp(), torch_cephes_log(), torch_cephes_gamma(),
     torch_cephes_lgam(), torch_cephes_fabs(), torch_cephes_hyp2f0();
@@ -83,7 +83,7 @@ static double hy1f1p();
 static double hy1f1a();
 double torch_cephes_hyperg();
 #endif
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 
 double torch_cephes_hyperg( a, b, x)
 double a, b, x;
@@ -266,7 +266,7 @@ acanc = torch_cephes_fabs(err1) + torch_cephes_fabs(err2);
 
 if( b < 0 )
 	{
-	temp = gamma(b);
+	temp = torch_cephes_gamma(b);
 	asum *= temp;
 	acanc *= torch_cephes_fabs(temp);
 	}

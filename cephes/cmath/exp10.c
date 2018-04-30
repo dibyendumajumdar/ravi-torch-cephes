@@ -155,20 +155,20 @@ static double MAXL10 = 308.2547155599167;
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 #else
 double torch_cephes_floor(), torch_cephes_ldexp(), torch_cephes_polevl(),
     torch_cephes_p1evl();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
 
 double torch_cephes_exp10(x)
@@ -204,7 +204,7 @@ if( x < -MAXL10 )	/* Would like to use MINLOG but can't */
  *   = 10**( g + n log10(2) )
  */
 px = torch_cephes_floor( LOG210 * x + 0.5 );
-n = px;
+n = (short) px;
 x -= px * LG102A;
 x -= px * LG102B;
 

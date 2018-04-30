@@ -259,7 +259,7 @@ x = x  -  360.0 * torch_cephes_floor( x/360.0 );
  * Note there should be a domain error test here,
  * but this is omitted to gain speed.
  */
-ix = x + 0.5;
+ix = (int) (x + 0.5);
 z = x - ix;		/* the residual */
 
 /* Look up the sine and cosine of the integer.

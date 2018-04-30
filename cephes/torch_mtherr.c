@@ -57,7 +57,10 @@
 #include <stdio.h>
 #include "cmath/mconf.h"
 
+CEPHES_API int torch_cephes_merror;
 int torch_cephes_merror = 0;
+
+CEPHES_API char torch_cephes_errtxt[];
 
 #define MAXERRLEN 100
 char torch_cephes_errtxt[MAXERRLEN];

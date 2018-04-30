@@ -38,9 +38,9 @@ Copyright 2000 by Stephen L. Moshier
 #include "mconf.h"
 
 #ifdef ANSIPROT
-extern double torch_cephes_fabs (double);
-extern double torch_cephes_floor (double);
-extern double torch_cephes_exp (double);
+CEPHES_API double torch_cephes_fabs (double);
+CEPHES_API double torch_cephes_floor (double);
+CEPHES_API double torch_cephes_exp (double);
 #else
 double torch_cephes_fabs();
 double torch_cephes_floor();
@@ -55,8 +55,8 @@ double torch_cephes_exp();
 #define MINV .0078125
 #endif
 
-extern double torch_cephes_MAXLOG;
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_INFINITY;
 
 double torch_cephes_expx2 (x, sign)
      double x;

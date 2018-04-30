@@ -1,9 +1,9 @@
 
 require 'cephes'
-require 'totem'
+require 'torch'
 local ffi = require 'ffi'
 local callTests = {}
-local tester = totem.Tester()
+local tester = torch.Tester()
 
 
 -- Test simple calls for bdtrc

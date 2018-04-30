@@ -49,10 +49,10 @@ static double CBRT2I = 0.79370052598409973737585;
 static double CBRT4I = 0.62996052494743658238361;
 
 #ifdef ANSIPROT
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_ldexp ( double, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 #else
 double torch_cephes_frexp(), torch_cephes_ldexp();
 int torch_cephes_isnan(), torch_cephes_isfinite();

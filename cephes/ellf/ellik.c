@@ -55,13 +55,13 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_tan ( double );
-extern double torch_cephes_atan ( double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ellpk ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_tan ( double );
+CEPHES_API double torch_cephes_atan ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ellpk ( double );
 double torch_cephes_ellik ( double, double );
 #else
 double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_log(),
@@ -69,7 +69,7 @@ double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_log(),
     torch_cephes_ellpk();
 double torch_cephes_ellik();
 #endif
-extern double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP,
+CEPHES_API double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP,
     torch_cephes_MAXNUM;
 
 double torch_cephes_ellik( phi, m )

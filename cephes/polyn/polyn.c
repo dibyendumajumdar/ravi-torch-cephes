@@ -63,8 +63,8 @@
 #include "mconf.h"
 #if ANSIPROT
 void exit (int);
-extern void * malloc ( unsigned long );
-extern void free ( void * );
+CEPHES_API void * malloc ( unsigned long );
+CEPHES_API void free ( void * );
 void torch_cephes_polclr ( double *, int );
 void torch_cephes_polmov ( double *, int, double * );
 void torch_cephes_polmul ( double *, int, double *, int, double * );
@@ -94,8 +94,8 @@ static double *pt2 = 0;
 static double *pt3 = 0;
 
 /* Maximum degree of polynomial. */
+CEPHES_API int torch_cephes_MAXPOL;
 int torch_cephes_MAXPOL = 0;
-extern int torch_cephes_MAXPOL;
 
 /* Number of bytes (chars) in maximum size polynomial. */
 static int psize = 0;

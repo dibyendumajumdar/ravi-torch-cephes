@@ -8,6 +8,8 @@
 
 /* Note: these numbers were computed using 40-decimal precision. */
 
+#include "mconf.h"
+
 #define NCOTE 8
 
 /* 6th order formula */
@@ -68,7 +70,6 @@ double torch_cephes_simpsn( f, delta )
 double f[];	/* tabulated function */
 double delta;	/* spacing of arguments */
 {
-extern double simcon[];
 double ans;
 int i;
 

@@ -335,16 +335,16 @@ static unsigned short R[] = {
 #define Hb Wb
 
 #ifdef ANSIPROT
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_ldexp ( double, int );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_powi ( double, int );
-extern int torch_cephes_signbit ( double );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_powi ( double, int );
+CEPHES_API int torch_cephes_signbit ( double );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 static double reduc ( double );
 #else
 double torch_cephes_floor(), torch_cephes_fabs(), torch_cephes_frexp(),
@@ -353,15 +353,15 @@ double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_powi();
 int torch_cephes_signbit(), torch_cephes_isnan(), torch_cephes_isfinite();
 static double reduc();
 #endif
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
 #ifdef NANS
-extern double torch_cephes_NAN;
+CEPHES_API double torch_cephes_NAN;
 #endif
 #ifdef MINUSZERO
-extern double torch_cephes_NEGZERO;
+CEPHES_API double torch_cephes_NEGZERO;
 #endif
 
 double torch_cephes_pow( x, y )
@@ -540,7 +540,7 @@ if( x <= 0.0 )
 
 if( iyflg )
 	{
-	i = w;
+	i = (short) w;
 	w = torch_cephes_floor(x);
 	if( (w == x) && (torch_cephes_fabs(y) < 32768.0) )
 		{
@@ -699,7 +699,7 @@ if( w < (MNEXP - 1) )
 	return( 0.0 );
 	}
 
-e = w;
+e = (short) w;
 Hb = H - Ha;
 
 if( Hb > 0.0 )

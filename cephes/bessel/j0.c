@@ -459,19 +459,20 @@ static unsigned short RQ[32] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-extern double torch_cephes_sqrt ( double );
-double torch_cephes_j0 ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_j0 ( double );
+CEPHES_API double torch_cephes_y0(double);
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_log(),
     torch_cephes_sin(), torch_cephes_cos(), torch_cephes_sqrt();
 double torch_cephes_j0();
 #endif
-extern double torch_cephes_TWOOPI, torch_cephes_SQ2OPI, torch_cephes_PIO4;
+CEPHES_API double torch_cephes_TWOOPI, torch_cephes_SQ2OPI, torch_cephes_PIO4;
 
 double torch_cephes_j0(x)
 double x;
@@ -514,7 +515,7 @@ return( p * torch_cephes_SQ2OPI / torch_cephes_sqrt(x) );
 #define PIO4 .78539816339744830962
 #define SQ2OPI .79788456080286535588
 */
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 
 double torch_cephes_y0(x)
 double x;

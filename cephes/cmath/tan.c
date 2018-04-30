@@ -180,12 +180,12 @@ static double lossth = 1.073741824e9;
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 static double torch_cephes_tancot(double, int);
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
@@ -193,9 +193,9 @@ double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
 static double torch_cephes_tancot();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
-extern double torch_cephes_PIO4;
-extern double torch_cephes_INFINITY;
-extern double torch_cephes_NAN;
+CEPHES_API double torch_cephes_PIO4;
+CEPHES_API double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_NAN;
 
 double torch_cephes_tan(x)
 double x;

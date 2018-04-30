@@ -52,17 +52,17 @@ Copyright 1984, 1987, 1993, 2000 by Stephen L. Moshier
 
 /*	Incomplete elliptic integral of second kind	*/
 #include "mconf.h"
-extern double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP;
 #ifdef ANSIPROT
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sin ( double x );
-extern double torch_cephes_tan ( double x );
-extern double torch_cephes_atan ( double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ellpe ( double );
-extern double torch_cephes_ellpk ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sin ( double x );
+CEPHES_API double torch_cephes_tan ( double x );
+CEPHES_API double torch_cephes_atan ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ellpe ( double );
+CEPHES_API double torch_cephes_ellpk ( double );
 double torch_cephes_ellie ( double, double );
 #else
 double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_log(),

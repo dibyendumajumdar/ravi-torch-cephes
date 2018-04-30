@@ -50,18 +50,18 @@
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_fabs ( double );
 #else
 double torch_cephes_pow(), torch_cephes_gamma(), torch_cephes_log(),
     torch_cephes_exp(), torch_cephes_fabs();
 #endif
 #define EUL 0.57721566490153286060
 #define BIG  1.44115188075855872E+17
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MAXLOG;
 
 double torch_cephes_expn( n, x )
 int n;
@@ -121,7 +121,7 @@ if( x > 1.0 )
 
 /*		Power series expansion		*/
 
-psi = -EUL - log(x);
+psi = -EUL - torch_cephes_log(x);
 for( i=1; i<n; i++ )
 	psi = psi + 1.0/i;
 
@@ -143,7 +143,7 @@ do
 		ans += yk/pk;
 		}
 	if( ans != 0.0 )
-		t = fabs(yk/ans);
+		t = torch_cephes_fabs(yk/ans);
 	else
 		t = 1.0;
 	}
@@ -151,7 +151,7 @@ while( t > torch_cephes_MACHEP );
 k = xk;
 t = n;
 r = n - 1;
-ans = (torch_cephes_pow(z, r) * psi / gamma(t)) - ans;
+ans = (torch_cephes_pow(z, r) * psi / torch_cephes_gamma(t)) - ans;
 goto done;
 
 /*							expn.c	*/
@@ -191,7 +191,7 @@ do
 	pkm1 = pk;
 	qkm2 = qkm1;
 	qkm1 = qk;
-if( fabs(pk) > big )
+if(torch_cephes_fabs(pk) > big )
 		{
 		pkm2 /= big;
 		pkm1 /= big;

@@ -60,10 +60,16 @@
 Cephes Math Library Release 2.3:  June, 1995
 Copyright 1984, 1987, 1989, 1995 by Stephen L. Moshier
 */
-
+#ifndef _TORCH_CEPHES_MCONF_H_
+#define _TORCH_CEPHES_MCONF_H_
 
 /* Define if the `long double' type works.  */
+#ifdef _MSC_VER
+#define HAVE_LONG_DOUBLE 0
+#else
 #define HAVE_LONG_DOUBLE 1
+#endif
+
 
 /* Define as the return type of signal handlers (int or void).  */
 #define RETSIGTYPE void
@@ -186,14 +192,34 @@ typedef struct
    See atan.c and clog.c. */
 #define ANSIC 1
 
+#ifdef __cplusplus
+# define CEPHES_EXTERNC extern "C"
+#else
+# define CEPHES_EXTERNC extern
+#endif
+
+#ifdef _WIN32
+# ifdef CEPHES_EXPORTS
+#  define CEPHES_API CEPHES_EXTERNC __declspec(dllexport)
+# else
+#  define CEPHES_API CEPHES_EXTERNC __declspec(dllimport)
+# endif
+#else
+# define CEPHES_API CEPHES_EXTERNC
+#endif
+
 /* Get ANSI function prototypes, if you want them. */
 #if 1
 /* #ifdef __STDC__ */
 #define ANSIPROT 1
-int torch_cephes_mtherr ( char *, int );
+CEPHES_API int torch_cephes_mtherr ( char *, int );
 #else
 int torch_cephes_mtherr();
 #endif
 
 /* Variable for error reporting.  See mtherr.c.  */
-extern int torch_cephes_merror;
+CEPHES_API int torch_cephes_merror;
+
+//#include <math.h>
+
+#endif

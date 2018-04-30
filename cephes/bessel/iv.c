@@ -54,18 +54,19 @@ Copyright 1984, 1987, 1988, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_hyperg ( double, double, double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_hyperg ( double, double, double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_iv(double, double);
 #else
 double torch_cephes_hyperg(), torch_cephes_exp(),
     torch_cephes_gamma(), torch_cephes_log(), torch_cephes_fabs(),
     torch_cephes_floor();
 #endif
-extern double torch_cephes_MACHEP, torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM;
 
 double torch_cephes_iv( v, x )
 double v, x;
@@ -111,7 +112,7 @@ if( x == 0.0 )
 	}
 
 ax = torch_cephes_fabs(x);
-t = v * log( 0.5 * ax )  -  x;
+t = v * torch_cephes_log( 0.5 * ax )  -  x;
 t = sign * torch_cephes_exp(t) / torch_cephes_gamma( v + 1.0 );
 ax = v + 0.5;
 return( t * torch_cephes_hyperg( ax,  2.0 * ax,  2.0 * x ) );

@@ -61,13 +61,13 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_floor ( double );
 #else
 double torch_cephes_fabs(), torch_cephes_pow(), torch_cephes_floor();
 #endif
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 
 /* Expansion coefficients
  * for Euler-Maclaurin summation formula

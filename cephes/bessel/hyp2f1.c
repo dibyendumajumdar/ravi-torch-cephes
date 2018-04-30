@@ -90,16 +90,16 @@ Copyright 1984, 1987, 1992, 2000 by Stephen L. Moshier
 #define ETHRESH 1.0e-12
 
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_round ( double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_psi ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_round ( double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_psi ( double );
 static double hyt2f1(double, double, double, double, double *);
 static double hys2f1(double, double, double, double, double *);
-double torch_cephes_hyp2f1(double, double, double, double);
+CEPHES_API double torch_cephes_hyp2f1(double, double, double, double);
 #else
 double torch_cephes_fabs(), torch_cephes_pow(),
     torch_cephes_round(), torch_cephes_gamma(), torch_cephes_log(),
@@ -108,7 +108,7 @@ static double hyt2f1();
 static double hys2f1();
 double torch_cephes_hyp2f1();
 #endif
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 
 double torch_cephes_hyp2f1( a, b, c, x )
 double a, b, c, x;
@@ -223,7 +223,7 @@ if( d < 0.0 )
 		goto hypdon;
 /* Apply the recurrence if power series fails */
 	err = 0.0;
-	aid = 2 - id;
+	aid = (int) (2 - id);
 	e = c + aid;
 	d2 = torch_cephes_hyp2f1(a,b,e,x);
 	d1 = torch_cephes_hyp2f1(a,b,e+1.0,x);
@@ -337,14 +337,14 @@ else
 		e = d;
 		d1 = d;
 		d2 = 0.0;
-		aid = id;
+		aid = (int) id;
 		}
 	else
 		{
 		e = -d;
 		d1 = 0.0;
 		d2 = d;
-		aid = -id;
+		aid = (int) (-id);
 		}
 
 	ax = torch_cephes_log(s);
@@ -445,7 +445,7 @@ u = 1.0;
 k = 0.0;
 do
 	{
-	if( fabs(h) < EPS )
+	if( torch_cephes_fabs(h) < EPS )
 		{
 		*loss = 1.0;
 		return( torch_cephes_MAXNUM );
@@ -453,7 +453,7 @@ do
 	m = k + 1.0;
 	u = u * ((f+k) * (g+k) * x / ((h+k) * m));
 	s += u;
-	k = fabs(u);  /* remember largest term summed */
+	k = torch_cephes_fabs(u);  /* remember largest term summed */
 	if( k > umax )
 		umax = k;
 	k = m;

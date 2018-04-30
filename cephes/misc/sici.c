@@ -576,17 +576,17 @@ static unsigned short GD8[] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 #else
 double torch_cephes_log(), torch_cephes_sin(), torch_cephes_cos(),
     torch_cephes_polevl(), torch_cephes_p1evl();
 #endif
 #define EUL 0.57721566490153286061
-extern double torch_cephes_MAXNUM, torch_cephes_PIO2, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_PIO2, torch_cephes_MACHEP;
 
 
 int torch_cephes_sici( x, si, ci )

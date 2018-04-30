@@ -1,8 +1,8 @@
 #!/usr/bin/env th
 
-require 'totem'
+require 'torch'
 
-local tester = totem.Tester()
+local tester = torch.Tester()
 tester:add('testCprob.lua')
 tester:add('testErrorHandling.lua')
 tester:add('test_bessel.lua')

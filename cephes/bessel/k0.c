@@ -274,17 +274,19 @@ static unsigned short B[] = {
 
 /*							k0.c	*/
 #ifdef ANSIPROT 
-extern double torch_cephes_chbevl ( double, void *, int );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_i0 ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_chbevl ( double, void *, int );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_i0 ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_k0(double);
+CEPHES_API double torch_cephes_k0e(double);
 #else
 double torch_cephes_chbevl(), torch_cephes_exp(), torch_cephes_i0(),
     torch_cephes_log(), torch_cephes_sqrt();
 #endif
-extern double torch_cephes_PI;
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_PI;
+CEPHES_API double torch_cephes_MAXNUM;
 
 double torch_cephes_k0(x)
 double x;

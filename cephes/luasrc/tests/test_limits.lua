@@ -1,7 +1,7 @@
 require 'cephes'
-require 'totem'
+require 'torch'
 local limitsTests = {}
-local tester = totem.Tester()
+local tester = torch.Tester()
 
 function limitsTests.test_isnan()
     tester:assert(cephes.isnan(cephes.nan))

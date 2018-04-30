@@ -51,11 +51,14 @@
  */
 /*							chbevl.c	*/
 
+#include "mconf.h"
+
 /*
 Cephes Math Library Release 2.0:  April, 1987
 Copyright 1985, 1987 by Stephen L. Moshier
 Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 */
+CEPHES_API double torch_cephes_chbevl(double, double[], int);
 
 double torch_cephes_chbevl( x, array, n )
 double x;

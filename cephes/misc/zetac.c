@@ -51,7 +51,7 @@ Copyright 1984, 1987, 1989, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-extern double torch_cephes_MAXNUM, torch_cephes_PI;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_PI;
 
 /* Riemann zeta(x) - 1
  * for integer arguments between 0 and 30.
@@ -494,20 +494,20 @@ static unsigned short S[20] = {
  * Riemann zeta function, minus one
  */
 #ifdef ANSIPROT
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 double torch_cephes_zetac ( double );
 #else
 double torch_cephes_sin(), torch_cephes_floor(), torch_cephes_gamma(),
     torch_cephes_pow(), torch_cephes_exp();
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_zetac();
 #endif
-extern double torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MACHEP;
 
 double torch_cephes_zetac(x)
 double x;
@@ -539,7 +539,7 @@ if( x >= MAXL2 )
 	return(0.0);	/* because first term is 2**-x */
 
 /* Tabulated values for integer argument */
-w = floor(x);
+w = torch_cephes_floor(x);
 if( w == x )
 	{
 	i = x;

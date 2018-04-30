@@ -63,23 +63,23 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-extern double torch_cephes_asin ( double );
-extern double torch_cephes_tanh ( double );
-extern double torch_cephes_sinh ( double );
-extern double torch_cephes_cosh ( double );
-extern double torch_cephes_atan ( double );
-extern double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_asin ( double );
+CEPHES_API double torch_cephes_tanh ( double );
+CEPHES_API double torch_cephes_sinh ( double );
+CEPHES_API double torch_cephes_cosh ( double );
+CEPHES_API double torch_cephes_atan ( double );
+CEPHES_API double torch_cephes_exp ( double );
 #else
 double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_sin(),
     torch_cephes_cos(), torch_cephes_asin(), torch_cephes_tanh();
 double torch_cephes_sinh(), torch_cephes_cosh(), torch_cephes_atan(),
     torch_cephes_exp();
 #endif
-extern double torch_cephes_PIO2, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_PIO2, torch_cephes_MACHEP;
 
 int torch_cephes_ellpj( u, m, sn, cn, dn, ph )
 double u, m;

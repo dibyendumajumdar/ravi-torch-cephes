@@ -1,8 +1,8 @@
 require 'cephes'
-require 'totem'
+require 'torch'
 local ffi = require 'ffi'
 local callTests = {}
-local tester = totem.Tester()
+local tester = torch.Tester()
 
 local max_pol = 3
 cephes.polini(max_pol)

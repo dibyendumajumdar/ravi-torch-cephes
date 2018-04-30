@@ -57,23 +57,24 @@ Copyright 1984, 1987, 1989, 1992, 2000 by Stephen L. Moshier
 #endif
 
 #ifdef ANSIPROT
-extern int torch_cephes_airy ( double, double *, double *, double *, double * );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_j0 ( double );
-extern double torch_cephes_j1 ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_cbrt ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-extern double torch_cephes_acos ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_lgam ( double );
+CEPHES_API int torch_cephes_airy ( double, double *, double *, double *, double * );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_j0 ( double );
+CEPHES_API double torch_cephes_j1 ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_cbrt ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_acos ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_lgam ( double );
+CEPHES_API double torch_cephes_jv(double, double);
 static double recur(double *, double, double *, int);
 static double jvs(double, double);
 static double hankel(double, double);
@@ -90,7 +91,7 @@ double torch_cephes_exp(), torch_cephes_log(),
 static double recur(), jvs(), hankel(), jnx(), jnt();
 #endif
 
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MINLOG,
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MINLOG,
     torch_cephes_MAXLOG;
 #define BIG  1.44115188075855872E+17
 
@@ -107,7 +108,7 @@ y = torch_cephes_floor( an );
 if( y == an )
 	{
 	nint = 1;
-	i = an - 16384.0 * torch_cephes_floor( an/16384.0 );
+	i = (int) (an - 16384.0 * torch_cephes_floor( an/16384.0 ));
 	if( n < 0.0 )
 		{
 		if( i & 1 )
@@ -321,7 +322,7 @@ do
 		r = 0.0;
 	if( r != 0 )
 		{
-		t = fabs( (ans - r)/r );
+		t = torch_cephes_fabs( (ans - r)/r );
 		ans = r;
 		}
 	else
@@ -335,7 +336,7 @@ do
 	if( t < torch_cephes_MACHEP )
 		goto done;
 
-	if( fabs(pk) > big )
+	if(torch_cephes_fabs(pk) > big )
 		{
 		pkm2 /= big;
 		pkm1 /= big;
@@ -406,7 +407,7 @@ while( k > (kf + 0.5) );
 
 if( cancel )
 	{
-	if( (kf >= 0.0) && (fabs(pk) > fabs(pkm1)) )
+	if( (kf >= 0.0) && (torch_cephes_fabs(pk) > torch_cephes_fabs(pkm1)) )
 		{
 		k += 1.0;
 		pkm2 = pk;
@@ -425,8 +426,8 @@ return( pkm2 );
  * AMS55 #9.1.10.
  */
 
-extern double torch_cephes_PI;
-extern int torch_cephes_sgngam;
+CEPHES_API double torch_cephes_PI;
+CEPHES_API int torch_cephes_sgngam;
 
 static double jvs( n, x )
 double n, x;
@@ -452,7 +453,7 @@ while( t > torch_cephes_MACHEP )
 printf( "power series=%.5e ", y );
 #endif
 t = torch_cephes_frexp( 0.5*x, &ex );
-ex = ex * n;
+ex = (int)(ex * n);
 if(  (ex > -1023)
   && (ex < 1023) 
   && (n > 0.0)
@@ -788,7 +789,7 @@ for( k=0; k<=3; k++ )
 
 /* normalizing factor ( 4*zeta/(1 - z**2) )**1/4	*/
 t = 4.0 * zeta/zz;
-t = sqrt( sqrt(t) );
+t = torch_cephes_sqrt(torch_cephes_sqrt(t) );
 
 t *= ai*pp/torch_cephes_cbrt(n)  +  aip*qq/(n23*n);
 return(t);
@@ -840,9 +841,9 @@ double nk, fk, gk, pp, qq;
 double F[5], G[4];
 int k;
 
-cbn = cbrt(n);
+cbn = torch_cephes_cbrt(n);
 z = (x - n)/cbn;
-cbtwo = cbrt( 2.0 );
+cbtwo = torch_cephes_cbrt( 2.0 );
 
 /* Airy function */
 zz = -cbtwo * z;
@@ -869,7 +870,7 @@ for( k=0; k<=3; k++ )
 pp = 0.0;
 qq = 0.0;
 nk = 1.0;
-n23 = cbrt( n * n );
+n23 = torch_cephes_cbrt( n * n );
 
 for( k=0; k<=4; k++ )
 	{
@@ -886,6 +887,6 @@ for( k=0; k<=4; k++ )
 	nk /= n23;
 	}
 
-fk = cbtwo * ai * pp/cbn  +  cbrt(4.0) * aip * qq/n;
+fk = cbtwo * ai * pp/cbn  + torch_cephes_cbrt(4.0) * aip * qq/n;
 return(fk);
 }

@@ -7,7 +7,7 @@
  * SYNOPSIS:
  *
  * double x, y, gamma();
- * extern int sgngam;
+ * CEPHES_API int sgngam;
  *
  * y = gamma( x );
  *
@@ -50,7 +50,7 @@
  * SYNOPSIS:
  *
  * double x, y, lgam();
- * extern int sgngam;
+ * CEPHES_API int sgngam;
  *
  * y = lgam( x );
  *
@@ -267,19 +267,19 @@ static unsigned short SQT[4] = {
 #endif
 
 int torch_cephes_sgngam = 0;
-extern int torch_cephessgngam;
-extern double torch_cephes_MAXLOG, torch_cephes_MAXNUM, torch_cephes_PI;
+CEPHES_API int torch_cephessgngam;
+CEPHES_API double torch_cephes_MAXLOG, torch_cephes_MAXNUM, torch_cephes_PI;
 #ifdef ANSIPROT
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_fabs ( double );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 static double stirf ( double );
 double torch_cephes_lgam ( double );
 #else
@@ -291,10 +291,10 @@ static double stirf();
 double torch_cephes_lgam();
 #endif
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
 #ifdef NANS
-extern double torch_cephes_NAN;
+CEPHES_API double torch_cephes_NAN;
 #endif
 
 /* Gamma function computed by Stirling's formula.
@@ -654,11 +654,11 @@ if( x < 13.0 )
 	else
 		torch_cephes_sgngam = 1;
 	if( u == 2.0 )
-		return( log(z) );
+		return(torch_cephes_log(z) );
 	p -= 2.0;
 	x = x + p;
 	p = x * torch_cephes_polevl( x, B, 5 ) / torch_cephes_p1evl( x, C, 6);
-	return( log(z) + p );
+	return(torch_cephes_log(z) + p );
 	}
 
 if( x > MAXLGM )

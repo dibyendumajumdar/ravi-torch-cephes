@@ -146,8 +146,8 @@ Copyright 1984, 1987, 1988, 1992, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-extern double torch_cephes_SQRTH;
-extern double torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_SQRTH;
+CEPHES_API double torch_cephes_MAXLOG;
 
 /* Define this macro to suppress error propagation in exp(x^2)
    by using the expx2 function.  The tradeoff is that doing so
@@ -385,13 +385,13 @@ static unsigned short U[] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_expx2 ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_expx2 ( double, int );
 double torch_cephes_erf ( double );
 double torch_cephes_erfc ( double );
 static double erfce ( double );
@@ -518,7 +518,7 @@ double x;
 double y, z;
 
 if( torch_cephes_fabs(x) > 1.0 )
-	return( 1.0 - erfc(x) );
+	return( 1.0 - torch_cephes_erfc(x) );
 z = x * x;
 y = x * torch_cephes_polevl( z, T, 4 ) / torch_cephes_p1evl( z, U, 5 );
 return( y );

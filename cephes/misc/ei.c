@@ -41,12 +41,12 @@ Copyright 1999 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_log ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 #else
-extern double torch_cephes_log(), torch_cephes_exp(), torch_cephes_polevl(),
+CEPHES_API double torch_cephes_log(), torch_cephes_exp(), torch_cephes_polevl(),
     torch_cephes_p1evl();
 #endif
 

@@ -6,25 +6,25 @@
 #include <stdio.h>
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_atan2 ( double, double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-extern void torch_cephes_polclr ( double *a, int n );
-extern void torch_cephes_polmov ( double *a, int na, double *b );
-extern void torch_cephes_polmul ( double a[], int na, double b[], int nb,
+CEPHES_API double torch_cephes_atan2 ( double, double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API void torch_cephes_polclr ( double *a, int n );
+CEPHES_API void torch_cephes_polmov ( double *a, int na, double *b );
+CEPHES_API void torch_cephes_polmul ( double a[], int na, double b[], int nb,
                                   double c[] );
-extern void torch_cephes_poladd ( double a[], int na, double b[], int nb,
+CEPHES_API void torch_cephes_poladd ( double a[], int na, double b[], int nb,
                                   double c[] );
-extern void torch_cephes_polsub ( double a[], int na, double b[],
+CEPHES_API void torch_cephes_polsub ( double a[], int na, double b[],
                                   int nb, double c[] );
-extern int torch_cephes_poldiv ( double a[], int na, double b[],
+CEPHES_API int torch_cephes_poldiv ( double a[], int na, double b[],
                                  int nb, double c[] );
-extern void torch_cephes_polsbt ( double a[], int na, double b[],
+CEPHES_API void torch_cephes_polsbt ( double a[], int na, double b[],
                                   int nb, double c[] );
-extern void * malloc ( unsigned long );
-extern void free ( void * );
+CEPHES_API void * malloc ( unsigned long );
+CEPHES_API void free ( void * );
 #else
 double torch_cephes_atan2(), torch_cephes_sqrt(), torch_cephes_fabs(),
     torch_cephes_sin(), torch_cephes_cos();
@@ -39,7 +39,7 @@ void free ();
    by the polyn.c subroutine package.  */
 #define N 16
 /* Highest degree actually initialized at runtime.  */
-extern int torch_cephes_MAXPOL;
+CEPHES_API int torch_cephes_MAXPOL;
 
 /* Taylor series coefficients for various functions
  */

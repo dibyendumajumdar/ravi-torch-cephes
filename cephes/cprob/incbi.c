@@ -46,16 +46,16 @@ Copyright 1984, 1996, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-extern double torch_cephes_MACHEP, torch_cephes_MAXNUM, torch_cephes_MAXLOG,
+CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM, torch_cephes_MAXLOG,
     torch_cephes_MINLOG;
 #ifdef ANSIPROT
-extern double torch_cephes_ndtri ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_lgam ( double );
-extern double torch_cephes_incbet ( double, double, double );
+CEPHES_API double torch_cephes_ndtri ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_lgam ( double );
+CEPHES_API double torch_cephes_incbet ( double, double, double );
 #else
 double torch_cephes_ndtri(), torch_cephes_exp(), torch_cephes_fabs(),
     torch_cephes_log(), torch_cephes_sqrt(), torch_cephes_lgam(),
@@ -278,7 +278,7 @@ for( i=0; i<8; i++ )
 		goto done;
 	if( d > torch_cephes_MAXLOG )
 		break;
-	d = exp(d);
+	d = torch_cephes_exp(d);
 	/* Compute the step to the next approximation of x. */
 	d = (y - y0)/d;
 	xt = x - d;

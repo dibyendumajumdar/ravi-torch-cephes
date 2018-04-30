@@ -47,13 +47,14 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_j0 ( double );
-extern double torch_cephes_j1 ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_j0 ( double );
+CEPHES_API double torch_cephes_j1 ( double );
+CEPHES_API double torch_cephes_jn(int, double);
 #else
 double torch_cephes_fabs(), torch_cephes_j0(), torch_cephes_j1();
 #endif
-extern double torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MACHEP;
 
 double torch_cephes_jn( n, x )
 int n;
@@ -126,8 +127,8 @@ do
 while( --k > 0 );
 
 if( torch_cephes_fabs(pk) > torch_cephes_fabs(pkm1) )
-	ans = j1(x)/pk;
+	ans = torch_cephes_j1(x)/pk;
 else
-	ans = j0(x)/pkm1;
+	ans = torch_cephes_j0(x)/pkm1;
 return( sign * ans );
 }

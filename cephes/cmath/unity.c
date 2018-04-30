@@ -12,19 +12,19 @@
 #include "mconf.h"
 
 #ifdef ANSIPROT
-extern int torch_cephes_isnan (double);
-extern int torch_cephes_isfinite (double);
-extern double torch_cephes_log ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_cos ( double );
+CEPHES_API int torch_cephes_isnan (double);
+CEPHES_API int torch_cephes_isfinite (double);
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_cos ( double );
 #else
 double torch_cephes_log(), torch_cephes_polevl(), torch_cephes_p1evl(),
     torch_cephes_exp(), torch_cephes_cos();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 
 /* log1p(x) = log(1 + x)  */
 
@@ -125,7 +125,7 @@ static double coscof[7] = {
  4.1666666666666666609054E-2,
 };
 
-extern double torch_cephes_PIO4;
+CEPHES_API double torch_cephes_PIO4;
 
 double torch_cephes_cosm1(x)
 double x;

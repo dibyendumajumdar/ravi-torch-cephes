@@ -58,10 +58,10 @@ Copyright 1999 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_polylog (int, double);
-extern double torch_cephes_exp (double);
-extern double torch_cephes_log1p (double); /* log(1+x) */
-extern double torch_cephes_expm1 (double); /* exp(x) - 1 */
+CEPHES_API double torch_cephes_polylog (int, double);
+CEPHES_API double torch_cephes_exp (double);
+CEPHES_API double torch_cephes_log1p (double); /* log(1+x) */
+CEPHES_API double torch_cephes_expm1 (double); /* exp(x) - 1 */
 double torch_cephes_planckc(double, double);
 double torch_cephes_plancki(double, double);
 #else

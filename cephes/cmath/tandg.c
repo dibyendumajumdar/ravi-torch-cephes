@@ -147,18 +147,18 @@ static double lossth = 1.0e14;
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
 static double tancot( double, int );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
     torch_cephes_ldexp();
 static double tancot();
 #endif
-extern double torch_cephes_MAXNUM;
-extern double torch_cephes_PIO4;
+CEPHES_API double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_PIO4;
 
 
 double torch_cephes_tandg(x)
@@ -203,12 +203,12 @@ if( x > lossth )
 	}
 
 /* compute x mod PIO4 */
-y = floor( x/45.0 );
+y = torch_cephes_floor( x/45.0 );
 
 /* strip high bits of integer part */
-z = ldexp( y, -3 );
-z = floor(z);		/* integer part of y/8 */
-z = y - ldexp( z, 3 );  /* y - 16 * (y/16) */
+z = torch_cephes_ldexp( y, -3 );
+z = torch_cephes_floor(z);		/* integer part of y/8 */
+z = y - torch_cephes_ldexp( z, 3 );  /* y - 16 * (y/16) */
 
 /* integer and fractional part modulo one octant */
 j = z;

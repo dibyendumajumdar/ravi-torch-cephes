@@ -342,16 +342,16 @@ static unsigned short CD[20] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_chbevl ( double, void *, int );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_chbevl ( double, void *, int );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 #else
 double torch_cephes_chbevl(), torch_cephes_sqrt(), torch_cephes_fabs(),
     torch_cephes_polevl(), torch_cephes_p1evl();
 #endif
-extern double torch_cephes_PI, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_PI, torch_cephes_MACHEP;
 
 double torch_cephes_dawsn( xx )
 double xx;

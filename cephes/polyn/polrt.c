@@ -54,7 +54,7 @@ typedef struct
 	}cmplx;
 */
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_fabs ( double );
 #else
 double torch_cephes_fabs();
 #endif
@@ -151,7 +151,7 @@ dx.r = (u.i * ud.i  -  u.r * ud.r)/mag;
 x.r += dx.r;
 dx.i = -(u.r * ud.i  +  u.i * ud.r)/mag;
 x.i += dx.i;
-if( (fabs(dx.i) + fabs(dx.r)) < 1.0e-6 )
+if( (torch_cephes_fabs(dx.i) + torch_cephes_fabs(dx.r)) < 1.0e-6 )
 	goto lupdon;
 iter += 1;
 }	/* while iter < 500 */

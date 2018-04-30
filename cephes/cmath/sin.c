@@ -194,23 +194,23 @@ static unsigned short P3[] = {0x3ce8,0x4698,0x98cc,0x5170};
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_floor(), torch_cephes_ldexp();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
-extern double torch_cephes_PIO4;
+CEPHES_API double torch_cephes_PIO4;
 static double lossth = 1.073741824e9;
 #ifdef NANS
-extern double torch_cephes_NAN;
+CEPHES_API double torch_cephes_NAN;
 #endif
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
 
 
@@ -254,7 +254,7 @@ z = torch_cephes_ldexp( y, -4 );
 z = torch_cephes_floor(z);           /* integer part of y/8 */
 z = y - torch_cephes_ldexp( z, 4 );  /* y - 16 * (y/16) */
 
-j = z; /* convert to integer for tests on the phase angle */
+j = (int) z; /* convert to integer for tests on the phase angle */
 /* map zeros to origin */
 if( j & 1 )
 	{
@@ -299,7 +299,7 @@ double torch_cephes_cos(x)
 double x;
 {
 double y, z, zz;
-long i;
+long long i;
 int j, sign;
 
 #ifdef NANS
@@ -329,7 +329,7 @@ z = torch_cephes_floor(z);		/* integer part of y/8 */
 z = y - torch_cephes_ldexp( z, 4 );  /* y - 16 * (y/16) */
 
 /* integer and fractional part modulo one octant */
-i = z;
+i = (long long) z;
 if( i & 1 )	/* map zeros to origin */
 	{
 	i += 1;

@@ -193,19 +193,20 @@ static unsigned short S[12] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_ldexp ( double, int );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_log(double);
 #else
 double torch_cephes_frexp(), torch_cephes_ldexp(), torch_cephes_polevl(),
     torch_cephes_p1evl();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
 #define SQRTH 0.70710678118654752440
-extern double torch_cephes_INFINITY, torch_cephes_NAN;
+CEPHES_API double torch_cephes_INFINITY, torch_cephes_NAN;
 
 double torch_cephes_log(x)
 double x;

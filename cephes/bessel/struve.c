@@ -37,18 +37,19 @@ Copyright 1984, 1987, 1989, 2000 by Stephen L. Moshier
 #include "mconf.h"
 #define DEBUG 0
 #ifdef ANSIPROT
-extern double torch_cephes_gamma ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_yn ( int, double );
-extern double torch_cephes_jv ( double, double );
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
-double torch_cephes_yv ( double, double );
-double torch_cephes_onef2 (double, double, double, double, double * );
-double torch_cephes_threef0 (double, double, double, double, double * );
+CEPHES_API double torch_cephes_gamma ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_yn ( int, double );
+CEPHES_API double torch_cephes_jv ( double, double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_yv ( double, double );
+CEPHES_API double torch_cephes_onef2 (double, double, double, double, double * );
+CEPHES_API double torch_cephes_threef0 (double, double, double, double, double * );
+CEPHES_API double torch_cephes_struve(double, double);
 #else
 double torch_cephes_gamma(), torch_cephes_pow(), torch_cephes_sqrt(),
     torch_cephes_yn(), torch_cephes_yv(), torch_cephes_jv(),
@@ -57,7 +58,7 @@ double torch_cephes_sin(), torch_cephes_cos();
 double torch_cephes_onef2(), torch_cephes_threef0();
 #endif
 static double stop = 1.37e-17;
-extern double torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MACHEP;
 
 double torch_cephes_onef2( a, b, c, x, err )
 double a, b, c, x;
@@ -214,7 +215,7 @@ return(sum);
 
 
 
-extern double torch_cephes_PI;
+CEPHES_API double torch_cephes_PI;
 
 double torch_cephes_struve( v, x )
 double v, x;
@@ -287,7 +288,7 @@ int n;
 y = torch_cephes_floor( v );
 if( y == v )
 	{
-	n = v;
+	n = (int) v;
 	y = torch_cephes_yn( n, x );
 	return( y );
 	}

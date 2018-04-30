@@ -6,7 +6,7 @@
  *
  * SYNOPSIS:
  *
- * extern double nameofconstant;
+ * CEPHES_API double nameofconstant;
  *
  *
  *
@@ -243,24 +243,24 @@ unsigned short torch_cephes_NEGZERO[4] = {0000000,0000000,0000000,0000000};
 #endif
 
 #ifndef UNK
-extern unsigned short torch_cephes_MACHEP[];
-extern unsigned short torch_cephes_UFLOWTHRESH[];
-extern unsigned short torch_cephes_MAXLOG[];
-extern unsigned short torch_cephes_UNDLOG[];
-extern unsigned short torch_cephes_MINLOG[];
-extern unsigned short torch_cephes_MAXNUM[];
-extern unsigned short torch_cephes_PI[];
-extern unsigned short torch_cephes_PIO2[];
-extern unsigned short torch_cephes_PIO4[];
-extern unsigned short torch_cephes_SQRT2[];
-extern unsigned short torch_cephes_SQRTH[];
-extern unsigned short torch_cephes_LOG2E[];
-extern unsigned short torch_cephes_SQ2OPI[];
-extern unsigned short torch_cephes_LOGE2[];
-extern unsigned short torch_cephes_LOGSQ2[];
-extern unsigned short torch_cephes_THPIO4[];
-extern unsigned short torch_cephes_TWOOPI[];
-extern unsigned short torch_cephes_INFINITY[];
-extern unsigned short torch_cephes_NAN[];
-extern unsigned short torch_cephes_NEGZERO[];
+CEPHES_API unsigned short torch_cephes_MACHEP[];
+CEPHES_API unsigned short torch_cephes_UFLOWTHRESH[];
+CEPHES_API unsigned short torch_cephes_MAXLOG[];
+CEPHES_API unsigned short torch_cephes_UNDLOG[];
+CEPHES_API unsigned short torch_cephes_MINLOG[];
+CEPHES_API unsigned short torch_cephes_MAXNUM[];
+CEPHES_API unsigned short torch_cephes_PI[];
+CEPHES_API unsigned short torch_cephes_PIO2[];
+CEPHES_API unsigned short torch_cephes_PIO4[];
+CEPHES_API unsigned short torch_cephes_SQRT2[];
+CEPHES_API unsigned short torch_cephes_SQRTH[];
+CEPHES_API unsigned short torch_cephes_LOG2E[];
+CEPHES_API unsigned short torch_cephes_SQ2OPI[];
+CEPHES_API unsigned short torch_cephes_LOGE2[];
+CEPHES_API unsigned short torch_cephes_LOGSQ2[];
+CEPHES_API unsigned short torch_cephes_THPIO4[];
+CEPHES_API unsigned short torch_cephes_TWOOPI[];
+CEPHES_API unsigned short torch_cephes_INFINITY[];
+CEPHES_API unsigned short torch_cephes_NAN[];
+CEPHES_API unsigned short torch_cephes_NEGZERO[];
 #endif

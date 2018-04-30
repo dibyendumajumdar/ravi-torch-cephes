@@ -211,7 +211,7 @@ double torch_cephes_gamma ( double );
 #else
 double torch_cephes_gamma();
 #endif
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 
 double torch_cephes_fac(i)
 int i;

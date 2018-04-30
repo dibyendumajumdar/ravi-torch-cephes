@@ -94,7 +94,7 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 #define NBITS 53
 #endif
 
-extern double torch_cephes_MAXNUM, torch_cephes_NEGZERO;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_NEGZERO;
 #ifdef ANSIPROT
 double torch_cephes_floor ( double );
 int torch_cephes_isnan ( double );

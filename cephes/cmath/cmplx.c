@@ -72,18 +72,18 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 #include "mconf.h"
 
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_cabs ( cmplx * );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_atan2 ( double, double );
-extern double torch_cephes_cos ( double );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_ldexp ( double, int );
-int torch_cephes_isnan ( double );
-void torch_cephes_cdiv ( cmplx *, cmplx *, cmplx * );
-void torch_cephes_cadd ( cmplx *, cmplx *, cmplx * );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_cabs ( cmplx * );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_atan2 ( double, double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API void torch_cephes_cdiv ( cmplx *, cmplx *, cmplx * );
+CEPHES_API void torch_cephes_cadd ( cmplx *, cmplx *, cmplx * );
 #else
 double torch_cephes_fabs(), torch_cephes_cabs(), torch_cephes_sqrt(),
     torch_cephes_atan2(), torch_cephes_cos(), torch_cephes_sin();
@@ -92,7 +92,7 @@ int torch_cephes_isnan();
 void torch_cephes_cdiv(), torch_cephes_cadd();
 #endif
 
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_PI,
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_PI,
     torch_cephes_PIO2, torch_cephes_INFINITY, torch_cephes_NAN;
 /*
 typedef struct
@@ -101,10 +101,10 @@ typedef struct
 	double i;
 	}cmplx;
 */
+CEPHES_API cmplx torch_cephes_czero;
 cmplx torch_cephes_czero = {0.0, 0.0};
-extern cmplx torch_cephes_czero;
+CEPHES_API cmplx torch_cephes_cone;
 cmplx torch_cephes_cone = {1.0, 0.0};
-extern cmplx torch_cephes_cone;
 
 /*	c = b + a	*/
 

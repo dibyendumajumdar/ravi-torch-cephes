@@ -136,21 +136,21 @@ static unsigned short sc2[] = {0x3eb7,0xf7d1,0xcf79,0xabca};
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
     torch_cephes_ldexp();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
-extern double torch_cephes_LOGE2, torch_cephes_LOG2E, torch_cephes_MAXLOG,
+CEPHES_API double torch_cephes_LOGE2, torch_cephes_LOG2E, torch_cephes_MAXLOG,
     torch_cephes_MINLOG, torch_cephes_MAXNUM;
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
 
 double torch_cephes_exp(x)
@@ -187,7 +187,7 @@ if( x < torch_cephes_MINLOG )
  */
 px = torch_cephes_floor(
     torch_cephes_LOG2E * x + 0.5 ); /* floor() truncates toward -infinity. */
-n = px;
+n = (int) px;
 x -= px * C1;
 x -= px * C2;
 

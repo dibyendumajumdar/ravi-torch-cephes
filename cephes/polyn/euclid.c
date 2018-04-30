@@ -28,14 +28,14 @@
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_floor ( double );
 double torch_cephes_euclid( double *, double * );
 #else
 double torch_cephes_fabs(), torch_cephes_floor(), torch_cephes_euclid();
 #endif
 
-extern double torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MACHEP;
 #define BIG (1.0/torch_cephes_MACHEP)
 
 typedef struct

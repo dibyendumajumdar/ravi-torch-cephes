@@ -175,13 +175,13 @@ static double lossth = 1.0e14;
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
 #else
 double torch_cephes_polevl(), torch_cephes_floor(), torch_cephes_ldexp();
 #endif
-extern double torch_cephes_PIO4;
+CEPHES_API double torch_cephes_PIO4;
 
 double torch_cephes_sindg(x)
 double x;
@@ -210,7 +210,7 @@ z = torch_cephes_ldexp( y, -4 );
 z = torch_cephes_floor(z);           /* integer part of y/8 */
 z = y - torch_cephes_ldexp( z, 4 );  /* y - 16 * (y/16) */
 
-j = z; /* convert to integer for tests on the phase angle */
+j = (int) z; /* convert to integer for tests on the phase angle */
 /* map zeros to origin */
 if( j & 1 )
 	{
@@ -271,7 +271,7 @@ z = torch_cephes_floor(z);		/* integer part of y/8 */
 z = y - torch_cephes_ldexp( z, 4 );  /* y - 16 * (y/16) */
 
 /* integer and fractional part modulo one octant */
-j = z;
+j = (int) z;
 if( j & 1 )	/* map zeros to origin */
 	{
 	j += 1;

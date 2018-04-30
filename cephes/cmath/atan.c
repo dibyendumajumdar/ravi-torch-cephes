@@ -168,18 +168,18 @@ static unsigned short T3P8A[] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_atan ( double );
-extern double torch_cephes_fabs ( double );
-extern int torch_cephes_signbit ( double );
-extern int torch_cephes_isnan ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_atan ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API int torch_cephes_signbit ( double );
+CEPHES_API int torch_cephes_isnan ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_atan(),
     torch_cephes_fabs();
 int torch_cephes_signbit(), torch_cephes_isnan();
 #endif
-extern double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_PIO4,
+CEPHES_API double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_PIO4,
     torch_cephes_INFINITY, torch_cephes_NEGZERO, torch_cephes_MAXNUM;
 
 /* pi/2 = PIO2 + MOREBITS.  */

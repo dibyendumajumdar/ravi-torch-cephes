@@ -119,21 +119,21 @@ static unsigned short Q[] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_ldexp ( double, int );
-extern int torch_cephes_isnan ( double );
-extern int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
   torch_cephes_ldexp();
 int torch_cephes_isnan(), torch_cephes_isfinite();
 #endif
 #ifdef INFINITIES
-extern double torch_cephes_INFINITY;
+CEPHES_API double torch_cephes_INFINITY;
 #endif
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 
 double torch_cephes_exp2(x)
 double x;
@@ -166,7 +166,7 @@ if( x < MINL2 )
 xx = x;	/* save x */
 /* separate into integer and fractional parts */
 px = torch_cephes_floor(x+0.5);
-n = px;
+n = (short) px;
 x = x - px;
 
 /* rational approximation

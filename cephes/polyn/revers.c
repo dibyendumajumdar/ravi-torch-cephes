@@ -6,7 +6,7 @@
  *
  * SYNOPSIS:
  *
- * extern int MAXPOL;
+ * CEPHES_API int MAXPOL;
  * int n;
  * double x[n+1], y[n+1];
  *
@@ -67,7 +67,7 @@ Copyright 1984, 1987, 1989, 1992, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-extern int torch_cephes_MAXPOL; /* initialized by polini() */
+CEPHES_API int torch_cephes_MAXPOL; /* initialized by polini() */
 
 #ifdef ANSIPROT
 /* See polyn.c.  */

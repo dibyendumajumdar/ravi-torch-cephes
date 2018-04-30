@@ -1,9 +1,9 @@
 -- Test the wrappers to the cprob folder
 require 'cephes'
-require 'totem'
+require 'torch'
 
 myTest = {}
-tester = totem.Tester()
+tester = torch.Tester()
 
 function myTest.testChdtr()
     local df = 4

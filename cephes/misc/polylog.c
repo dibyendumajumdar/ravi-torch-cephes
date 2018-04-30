@@ -71,7 +71,7 @@ Copyright 1999 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-extern double torch_cephes_PI;
+CEPHES_API double torch_cephes_PI;
 
 /* polylog(4, 1-x) = zeta(4) - x zeta(3) + x^2 A4(x)/B4(x)
    0 <= x <= 0.125
@@ -206,25 +206,25 @@ static short B4[48] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_spence ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_zetac ( double );
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_powi ( double, int );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_fac ( int i );
-extern double torch_cephes_fabs (double);
+CEPHES_API double torch_cephes_spence ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_zetac ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_powi ( double, int );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_fac ( int i );
+CEPHES_API double torch_cephes_fabs (double);
 double torch_cephes_polylog (int, double);
 #else
-extern double torch_cephes_spence(), torch_cephes_polevl(),
+CEPHES_API double torch_cephes_spence(), torch_cephes_polevl(),
     torch_cephes_p1evl(), torch_cephes_zetac();
-extern double torch_cephes_pow(), torch_cephes_powi(), torch_cephes_log();
-extern double torch_cephes_fac(); /* factorial */
-extern double torch_cephes_fabs();
+CEPHES_API double torch_cephes_pow(), torch_cephes_powi(), torch_cephes_log();
+CEPHES_API double torch_cephes_fac(); /* factorial */
+CEPHES_API double torch_cephes_fabs();
 double torch_cephes_polylog();
 #endif
-extern double torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MACHEP;
 
 double
 torch_cephes_polylog (n, x)
@@ -351,10 +351,10 @@ torch_cephes_polylog (n, x)
       if (x > 0.8)
 	{
 	  /* Thanks to Oscar van Vlijmen for detecting an error here.  */
-	  u = log(x);
+	  u = torch_cephes_log(x);
 	  s = u * u * u / 6.0;
 	  xc = 1.0 - x;
-	  s = s - 0.5 * u * u * log(xc);
+	  s = s - 0.5 * u * u * torch_cephes_log(xc);
           s = s + torch_cephes_PI * torch_cephes_PI * u / 6.0;
           s = s - torch_cephes_polylog (3, -xc/x);
 	  s = s - torch_cephes_polylog (3, xc);

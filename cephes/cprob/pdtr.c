@@ -127,9 +127,9 @@ Copyright 1984, 1987, 1995, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_igam ( double, double );
-extern double torch_cephes_igamc ( double, double );
-extern double torch_cephes_igami ( double, double );
+CEPHES_API double torch_cephes_igam ( double, double );
+CEPHES_API double torch_cephes_igamc ( double, double );
+CEPHES_API double torch_cephes_igami ( double, double );
 #else
 double torch_cephes_igam(), torch_cephes_igamc(), torch_cephes_igami();
 #endif

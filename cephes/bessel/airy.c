@@ -61,9 +61,9 @@ static double c1 = 0.35502805388781723926;
 static double c2 = 0.258819403792806798405;
 static double sqrt3 = 1.732050807568877293527;
 static double sqpii = 5.64189583547756286948E-1;
-extern double torch_cephes_PI;
+CEPHES_API double torch_cephes_PI;
 
-extern double torch_cephes_MAXNUM, torch_cephes_MACHEP;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 #ifdef UNK
 #define MAXAIRY 25.77
 #endif
@@ -823,13 +823,14 @@ static unsigned short APGD[40] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_fabs ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_sin ( double );
-extern double torch_cephes_cos ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_sin ( double );
+CEPHES_API double torch_cephes_cos ( double );
+CEPHES_API int torch_cephes_airy(double, double *, double *, double *, double *);
 #else
 double torch_cephes_fabs(), torch_cephes_exp(), torch_cephes_sqrt();
 double torch_cephes_polevl(), torch_cephes_p1evl(),

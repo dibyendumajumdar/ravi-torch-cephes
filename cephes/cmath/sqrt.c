@@ -47,12 +47,12 @@ Copyright 1984, 1987, 1988, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_frexp ( double, int * );
-extern double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_frexp ( double, int * );
+CEPHES_API double torch_cephes_ldexp ( double, int );
 #else
 double torch_cephes_frexp(), torch_cephes_ldexp();
 #endif
-extern double torch_cephes_SQRT2;  /*  SQRT2 = 1.41421356237309504880 */
+CEPHES_API double torch_cephes_SQRT2;  /*  SQRT2 = 1.41421356237309504880 */
 
 double torch_cephes_sqrt(x)
 double x;

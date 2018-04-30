@@ -54,13 +54,14 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_y0 ( double );
-extern double torch_cephes_y1 ( double );
-extern double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_y0 ( double );
+CEPHES_API double torch_cephes_y1 ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_yn(int, double);
 #else
 double torch_cephes_y0(), torch_cephes_y1(), torch_cephes_log();
 #endif
-extern double torch_cephes_MAXNUM, torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MAXLOG;
 
 double torch_cephes_yn( n, x )
 int n;
@@ -82,9 +83,9 @@ else
 
 
 if( n == 0 )
-	return( sign * y0(x) );
+	return( sign * torch_cephes_y0(x) );
 if( n == 1 )
-	return( sign * y1(x) );
+	return( sign * torch_cephes_y1(x) );
 
 /* test for overflow */
 if( x <= 0.0 )
@@ -95,8 +96,8 @@ if( x <= 0.0 )
 
 /* forward recurrence on n */
 
-anm2 = y0(x);
-anm1 = y1(x);
+anm2 = torch_cephes_y0(x);
+anm1 = torch_cephes_y1(x);
 k = 1;
 r = 2 * k;
 do

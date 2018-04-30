@@ -21,22 +21,22 @@
 
 #include "mconf.h"
 #ifdef ANSIPROT
-extern double torch_cephes_pow ( double, double );
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_lgam ( double );
-extern double torch_cephes_exp ( double );
-extern double torch_cephes_sqrt ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_fabs ( double );
-double torch_cephes_smirnov ( int, double );
-double torch_cephes_kolmogorov ( double );
+CEPHES_API double torch_cephes_pow ( double, double );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_lgam ( double );
+CEPHES_API double torch_cephes_exp ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_fabs ( double );
+CEPHES_API double torch_cephes_smirnov ( int, double );
+CEPHES_API double torch_cephes_kolmogorov ( double );
 #else
 double torch_cephes_pow (), torch_cephes_floor (), torch_cephes_lgam (),
     torch_cephes_exp (), torch_cephes_sqrt (), torch_cephes_log (),
     torch_cephes_fabs ();
 double torch_cephes_smirnov (), torch_cephes_kolmogorov ();
 #endif
-extern double torch_cephes_MAXLOG;
+CEPHES_API double torch_cephes_MAXLOG;
 
 /* Exact Smirnov statistic, for one-sided test.  */
 double
@@ -175,7 +175,7 @@ torch_cephes_kolmogi (p)
     {
       /* Use approximate derivative in Newton iteration. */
       t = -2.0 * y;
-      dpdy = 4.0 * t * exp (t * y);
+      dpdy = 4.0 * t * torch_cephes_exp (t * y);
       if (torch_cephes_fabs (dpdy) > 0.0)
 	t = (p - torch_cephes_kolmogorov (y)) / dpdy;
       else

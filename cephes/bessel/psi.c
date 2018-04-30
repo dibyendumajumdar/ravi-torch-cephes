@@ -109,15 +109,16 @@ static unsigned short A[] = {
 #define EUL 0.57721566490153286061
 
 #ifdef ANSIPROT
-extern double torch_cephes_floor ( double );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_tan ( double );
-extern double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_tan ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_psi(double);
 #else
 double torch_cephes_floor(), torch_cephes_log(), torch_cephes_tan(),
     torch_cephes_polevl();
 #endif
-extern double torch_cephes_PI, torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_PI, torch_cephes_MAXNUM;
 
 
 double torch_cephes_psi(x)
@@ -163,7 +164,7 @@ if( x <= 0.0 )
 if( (x <= 10.0) && (x == torch_cephes_floor(x)) )
 	{
 	y = 0.0;
-	n = x;
+	n = (int) x;
 	for( i=1; i<n; i++ )
 		{
 		w = i;

@@ -52,7 +52,7 @@ Copyright 1984, 1987, 1989, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-extern double torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MAXNUM;
 
 #ifdef UNK
 /* sqrt(2pi) */
@@ -361,10 +361,10 @@ static unsigned short Q2[32] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_log ( double );
-extern double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_sqrt ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_log(),
     torch_cephes_sqrt();

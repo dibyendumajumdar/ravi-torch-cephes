@@ -197,13 +197,13 @@ static double C1 = 1.3862943611198906188E0; /* log(4) */
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_log ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_log ( double );
 #else
 double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_log();
 #endif
-extern double torch_cephes_MACHEP, torch_cephes_MAXNUM;
+CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM;
 
 double torch_cephes_ellpk(x)
 double x;

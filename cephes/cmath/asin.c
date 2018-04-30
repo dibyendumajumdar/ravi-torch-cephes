@@ -242,15 +242,15 @@ static short S[16] = {
 #endif
 
 #ifdef ANSIPROT
-extern double torch_cephes_polevl ( double, void *, int );
-extern double torch_cephes_p1evl ( double, void *, int );
-extern double torch_cephes_sqrt ( double );
-double torch_cephes_asin ( double );
+CEPHES_API double torch_cephes_polevl ( double, void *, int );
+CEPHES_API double torch_cephes_p1evl ( double, void *, int );
+CEPHES_API double torch_cephes_sqrt ( double );
+CEPHES_API double torch_cephes_asin ( double );
 #else
 double torch_cephes_sqrt(), torch_cephes_polevl(), torch_cephes_p1evl();
 double torch_cephes_asin();
 #endif
-extern double torch_cephes_PIO2, torch_cephes_PIO4, torch_cephes_NAN;
+CEPHES_API double torch_cephes_PIO2, torch_cephes_PIO4, torch_cephes_NAN;
 
 double torch_cephes_asin(x)
 double x;
