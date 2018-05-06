@@ -84,6 +84,13 @@ CEPHES_API double torch_cephes_ldexp ( double, int );
 CEPHES_API int torch_cephes_isnan ( double );
 CEPHES_API void torch_cephes_cdiv ( cmplx *, cmplx *, cmplx * );
 CEPHES_API void torch_cephes_cadd ( cmplx *, cmplx *, cmplx * );
+CEPHES_API void torch_cephes_csub ( cmplx *, cmplx *, cmplx * );
+CEPHES_API void torch_cephes_cmul ( cmplx *, cmplx *, cmplx * );
+CEPHES_API void torch_cephes_cmov ( void *, void * );
+CEPHES_API void torch_cephes_cneg ( cmplx * );
+CEPHES_API double torch_cephes_cabs( cmplx * );
+CEPHES_API void torch_cephes_csqrt( cmplx *, cmplx * );
+CEPHES_API double torch_cephes_hypot( double, double );
 #else
 double torch_cephes_fabs(), torch_cephes_cabs(), torch_cephes_sqrt(),
     torch_cephes_atan2(), torch_cephes_cos(), torch_cephes_sin();

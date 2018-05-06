@@ -1,6 +1,6 @@
 require 'cephes'
 require 'torch'
-local limitsTests = {}
+local callTests = torch.TestSuite()
 local tester = torch.Tester()
 
 function limitsTests.test_isnan()

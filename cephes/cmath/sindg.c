@@ -175,7 +175,6 @@ static double lossth = 1.0e14;
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_ldexp ( double, int );
 #else

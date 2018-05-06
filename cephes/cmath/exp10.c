@@ -157,10 +157,9 @@ static double MAXL10 = 308.2547155599167;
 #ifdef ANSIPROT
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API int torch_cephes_isnan ( double );
 CEPHES_API int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_exp10( double );
 #else
 double torch_cephes_floor(), torch_cephes_ldexp(), torch_cephes_polevl(),
     torch_cephes_p1evl();

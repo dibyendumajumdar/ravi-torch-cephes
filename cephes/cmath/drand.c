@@ -53,6 +53,8 @@ static int ranwh ( void );
 static int ranwh();
 #endif
 
+CEPHES_API int torch_cephes_drand( double * );
+
 static int sx = 1;
 static int sy = 10000;
 static int sz = 3000;

@@ -449,8 +449,6 @@ static unsigned short gd[44] = {
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API double torch_cephes_cos ( double );
 CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 #else
 double torch_cephes_fabs(), torch_cephes_cos(), torch_cephes_sin(),
     torch_cephes_polevl(), torch_cephes_p1evl();

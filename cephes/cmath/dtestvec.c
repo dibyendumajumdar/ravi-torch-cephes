@@ -14,7 +14,7 @@ int isfinite (double);
 /* C9X spells lgam lgamma.  */
 #define GLIBC2 0
 
-extern double torch_cephes_PI;
+CEPHES_API double torch_cephes_PI;
 static double MPI, PIO2, MPIO2, PIO4, MPIO4, THPIO4, MTHPIO4;
 
 #if 0
@@ -28,8 +28,8 @@ static double MPI, PIO2, MPIO2, PIO4, MPIO4, THPIO4, MTHPIO4;
 #define MINF (-1.0/0.0)
 #endif
 
-extern double torch_cephes_MACHEP, torch_cephes_SQRTH, torch_cephes_SQRT2;
-extern double torch_cephes_NAN, torch_cephes_INFINITY, torch_cephes_NEGZERO;
+CEPHES_API double torch_cephes_MACHEP, torch_cephes_SQRTH, torch_cephes_SQRT2;
+CEPHES_API double torch_cephes_NAN, torch_cephes_INFINITY, torch_cephes_NEGZERO;
 static double torch_cephes_INF, torch_cephes_MINF;
 static double torch_cephes_ZERO, torch_cephes_MZERO, torch_cephes_HALF,
     torch_cephes_MHALF, torch_cephes_ONE, torch_cephes_MONE, torch_cephes_TWO,
@@ -37,36 +37,36 @@ static double torch_cephes_ZERO, torch_cephes_MZERO, torch_cephes_HALF,
 /* #define NAN (1.0/0.0 - 1.0/0.0) */
 
 /* Functions of one variable.  */
-double torch_cephes_log (double);
-double torch_cephes_exp ( double);
-double torch_cephes_atan (double);
-double torch_cephes_sin (double);
-double torch_cephes_cos (double);
-double torch_cephes_tan (double);
-double torch_cephes_acos (double);
-double torch_cephes_asin (double);
-double torch_cephes_acosh (double);
-double torch_cephes_asinh (double);
-double torch_cephes_atanh (double);
-double torch_cephes_sinh (double);
-double torch_cephes_cosh (double);
-double torch_cephes_tanh (double);
-double torch_cephes_exp2 (double);
-double torch_cephes_expm1 (double);
-double torch_cephes_log10 (double);
-double torch_cephes_log1p (double);
-double torch_cephes_log2 (double);
-double torch_cephes_fabs (double);
-double torch_cephes_erf (double);
-double torch_cephes_erfc (double);
-double torch_cephes_gamma (double);
-double torch_cephes_floor (double);
-double torch_cephes_ceil (double);
-double torch_cephes_cbrt (double);
+CEPHES_API double torch_cephes_log (double);
+CEPHES_API double torch_cephes_exp ( double);
+CEPHES_API double torch_cephes_atan (double);
+CEPHES_API double torch_cephes_sin (double);
+CEPHES_API double torch_cephes_cos (double);
+CEPHES_API double torch_cephes_tan (double);
+CEPHES_API double torch_cephes_acos (double);
+CEPHES_API double torch_cephes_asin (double);
+CEPHES_API double torch_cephes_acosh (double);
+CEPHES_API double torch_cephes_asinh (double);
+CEPHES_API double torch_cephes_atanh (double);
+CEPHES_API double torch_cephes_sinh (double);
+CEPHES_API double torch_cephes_cosh (double);
+CEPHES_API double torch_cephes_tanh (double);
+CEPHES_API double torch_cephes_exp2 (double);
+CEPHES_API double torch_cephes_expm1 (double);
+CEPHES_API double torch_cephes_log10 (double);
+CEPHES_API double torch_cephes_log1p (double);
+CEPHES_API double torch_cephes_log2 (double);
+CEPHES_API double torch_cephes_fabs (double);
+CEPHES_API double torch_cephes_erf (double);
+CEPHES_API double torch_cephes_erfc (double);
+CEPHES_API double torch_cephes_gamma (double);
+CEPHES_API double torch_cephes_floor (double);
+CEPHES_API double torch_cephes_ceil (double);
+CEPHES_API double torch_cephes_cbrt (double);
 #if GLIBC2
-double torch_cephes_lgamma (double);
+CEPHES_API double torch_cephes_lgamma (double);
 #else
-double torch_cephes_lgam (double);
+CEPHES_API double torch_cephes_lgam (double);
 #endif
 
 struct oneargument
@@ -341,8 +341,8 @@ struct twoarguments test2[] =
 
 /* Integer functions of one variable.  */
 
-int torch_cephes_isnan (double);
-int torch_cephes_signbit (double);
+CEPHES_API int torch_cephes_isnan (double);
+CEPHES_API int torch_cephes_signbit (double);
 
 struct intans
   {

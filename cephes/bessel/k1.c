@@ -277,7 +277,6 @@ static unsigned short B[] = {
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_chbevl ( double, void *, int );
 CEPHES_API double torch_cephes_exp ( double );
 CEPHES_API double torch_cephes_i1 ( double );
 CEPHES_API double torch_cephes_log ( double );

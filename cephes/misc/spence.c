@@ -142,7 +142,6 @@ static unsigned short B[32] = {
 #ifdef ANSIPROT
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
 #else
 double torch_cephes_fabs(), torch_cephes_log(), torch_cephes_polevl();
 #endif

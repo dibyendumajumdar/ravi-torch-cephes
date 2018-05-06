@@ -48,7 +48,8 @@ Cephes Math Library Release 2.1:  December, 1988
 Copyright 1984, 1987, 1988 by Stephen L. Moshier
 Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 */
-
+#include "mconf.h"
+CEPHES_API double torch_cephes_polevl( double, double[], int );
 
 double torch_cephes_polevl( x, coef, N )
 double x;

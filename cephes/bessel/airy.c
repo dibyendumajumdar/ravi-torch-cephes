@@ -826,8 +826,6 @@ static unsigned short APGD[40] = {
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API double torch_cephes_exp ( double );
 CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_sin ( double );
 CEPHES_API double torch_cephes_cos ( double );
 CEPHES_API int torch_cephes_airy(double, double *, double *, double *, double *);

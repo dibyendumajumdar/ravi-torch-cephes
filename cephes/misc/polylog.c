@@ -207,8 +207,6 @@ static short B4[48] = {
 
 #ifdef ANSIPROT
 CEPHES_API double torch_cephes_spence ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_zetac ( double );
 CEPHES_API double torch_cephes_pow ( double, double );
 CEPHES_API double torch_cephes_powi ( double, int );

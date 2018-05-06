@@ -274,8 +274,6 @@ CEPHES_API double torch_cephes_pow ( double, double );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_exp ( double );
 CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API int torch_cephes_isnan ( double );
@@ -362,7 +360,7 @@ gamnan:
 			goto goverf;
 #endif
 			}
-		i = p;
+		i = (int) p;
 		if( (i & 1) == 0 )
 			torch_cephes_sgngam = -1;
 		z = q - p;
@@ -608,7 +606,7 @@ lgsing:
 		goto loverf;
 #endif
 		}
-	i = p;
+	i = (int) p;
 	if( (i & 1) == 0 )
 		torch_cephes_sgngam = -1;
 	else

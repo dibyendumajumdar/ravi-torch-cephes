@@ -15,8 +15,6 @@
 CEPHES_API int torch_cephes_isnan (double);
 CEPHES_API int torch_cephes_isfinite (double);
 CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_exp ( double );
 CEPHES_API double torch_cephes_cos ( double );
 #else

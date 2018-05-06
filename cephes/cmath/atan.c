@@ -168,8 +168,6 @@ static unsigned short T3P8A[] = {
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_atan ( double );
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API int torch_cephes_signbit ( double );

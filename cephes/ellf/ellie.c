@@ -82,7 +82,7 @@ int d, mod, npio2, sign;
 if( m == 0.0 )
 	return( phi );
 lphi = phi;
-npio2 = torch_cephes_floor( lphi/torch_cephes_PIO2 );
+npio2 = (int) torch_cephes_floor( lphi/torch_cephes_PIO2 );
 if( npio2 & 1 )
 	npio2 += 1;
 lphi = lphi - npio2 * torch_cephes_PIO2;
@@ -129,7 +129,7 @@ while( torch_cephes_fabs(c/a) > torch_cephes_MACHEP )
 	{
 	temp = b/a;
 	lphi = lphi + torch_cephes_atan(t*temp) + mod * torch_cephes_PI;
-	mod = (lphi + torch_cephes_PIO2)/torch_cephes_PI;
+	mod = (int) ((lphi + torch_cephes_PIO2)/torch_cephes_PI);
 	t = t * ( 1.0 + temp )/( 1.0 - temp * t * t );
 	c = ( a - b )/2.0;
 	temp = torch_cephes_sqrt( a * b );

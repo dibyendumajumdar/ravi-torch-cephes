@@ -112,7 +112,6 @@ static unsigned short A[] = {
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_tan ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
 CEPHES_API double torch_cephes_psi(double);
 #else
 double torch_cephes_floor(), torch_cephes_log(), torch_cephes_tan(),

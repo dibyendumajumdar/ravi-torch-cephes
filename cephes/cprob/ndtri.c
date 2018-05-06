@@ -361,8 +361,6 @@ static unsigned short Q2[32] = {
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_sqrt ( double );
 #else

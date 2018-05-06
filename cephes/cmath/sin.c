@@ -194,8 +194,6 @@ static unsigned short P3[] = {0x3ce8,0x4698,0x98cc,0x5170};
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_ldexp ( double, int );
 CEPHES_API int torch_cephes_isnan ( double );

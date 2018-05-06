@@ -2,7 +2,7 @@
 require 'cephes'
 require 'torch'
 
-myTest = {}
+myTest = torch.TestSuite()
 tester = torch.Tester()
 
 function myTest.testChdtr()

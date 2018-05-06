@@ -96,10 +96,13 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_NEGZERO;
 #ifdef ANSIPROT
-double torch_cephes_floor ( double );
-int torch_cephes_isnan ( double );
-int torch_cephes_isfinite ( double );
-double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_floor ( double );
+CEPHES_API int torch_cephes_isnan ( double );
+CEPHES_API int torch_cephes_isfinite ( double );
+CEPHES_API double torch_cephes_ldexp ( double, int );
+CEPHES_API double torch_cephes_ceil( double );
+CEPHES_API double torch_cephes_frexp( double, int *);
+CEPHES_API double torch_cephes_ldexp( double, int );
 #else
 double torch_cephes_floor();
 int torch_cephes_isnan(), torch_cephes_isfinite();

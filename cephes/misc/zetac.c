@@ -499,9 +499,7 @@ CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_gamma ( double );
 CEPHES_API double torch_cephes_pow ( double, double );
 CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
-double torch_cephes_zetac ( double );
+CEPHES_API double torch_cephes_zetac ( double );
 #else
 double torch_cephes_sin(), torch_cephes_floor(), torch_cephes_gamma(),
     torch_cephes_pow(), torch_cephes_exp();
@@ -542,7 +540,7 @@ if( x >= MAXL2 )
 w = torch_cephes_floor(x);
 if( w == x )
 	{
-	i = x;
+	i = (int) x;
 	if( i < 31 )
 		{
 #ifdef UNK

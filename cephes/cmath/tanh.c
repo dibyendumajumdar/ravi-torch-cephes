@@ -97,8 +97,6 @@ static unsigned short Q[] = {
 #ifdef ANSIPROT
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 #else
 double torch_cephes_fabs(), torch_cephes_exp(), torch_cephes_polevl(),
     torch_cephes_p1evl();

@@ -445,8 +445,6 @@ static unsigned short DZ2[] = {0x4048,0x9bf6,0x6072,0xa432};
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_sin ( double );
 CEPHES_API double torch_cephes_cos ( double );

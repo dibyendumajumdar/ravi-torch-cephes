@@ -61,7 +61,6 @@ CEPHES_API int torch_cephes_airy ( double, double *, double *, double *, double 
 CEPHES_API double torch_cephes_fabs ( double );
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
 CEPHES_API double torch_cephes_j0 ( double );
 CEPHES_API double torch_cephes_j1 ( double );
 CEPHES_API double torch_cephes_sqrt ( double );

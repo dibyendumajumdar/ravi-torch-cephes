@@ -148,7 +148,7 @@ do
 		t = 1.0;
 	}
 while( t > torch_cephes_MACHEP );
-k = xk;
+k = (int) xk;
 t = n;
 r = n - 1;
 ans = (torch_cephes_pow(z, r) * psi / torch_cephes_gamma(t)) - ans;

@@ -49,7 +49,7 @@ torch_cephes_smirnov (n, e)
 
   if (n <= 0 || e < 0.0 || e > 1.0)
     return (-1.0);
-  nn = torch_cephes_floor ((double) n * (1.0 - e));
+  nn = (int) (torch_cephes_floor ((double) n * (1.0 - e)));
   p = 0.0;
   if (n < 1013)
     {

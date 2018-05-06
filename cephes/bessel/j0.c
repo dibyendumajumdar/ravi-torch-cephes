@@ -459,8 +459,6 @@ static unsigned short RQ[32] = {
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_sin ( double );
 CEPHES_API double torch_cephes_cos ( double );

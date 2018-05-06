@@ -91,7 +91,7 @@ if( a == 0.0 )
 	return(  torch_cephes_log(  torch_cephes_tan(
             (torch_cephes_PIO2 + phi)/2.0 )  )   );
 	}
-npio2 = torch_cephes_floor( phi/torch_cephes_PIO2 );
+npio2 = (int) torch_cephes_floor( phi/torch_cephes_PIO2 );
 if( npio2 & 1 )
 	npio2 += 1;
 if( npio2 )
@@ -133,7 +133,7 @@ while( torch_cephes_fabs(c/a) > torch_cephes_MACHEP )
 	{
 	temp = b/a;
 	phi = phi + torch_cephes_atan(t*temp) + mod * torch_cephes_PI;
-	mod = (phi + torch_cephes_PIO2)/torch_cephes_PI;
+	mod = (int) ((phi + torch_cephes_PIO2)/torch_cephes_PI);
 	t = t * ( 1.0 + temp )/( 1.0 - temp * t * t );
 	c = ( a - b )/2.0;
 	temp = torch_cephes_sqrt( a * b );

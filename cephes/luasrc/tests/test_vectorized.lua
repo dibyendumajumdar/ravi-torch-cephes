@@ -1,7 +1,7 @@
 require 'cephes'
 require 'torch'
 
-local vectorizeTests = {}
+local vectorizeTests = torch.TestSuite()
 local tester = torch.Tester()
 
 local function eq(tensor1, tensor2, message)
@@ -13,7 +13,7 @@ function vectorizeTests.testGamma()
     local x = torch.linspace(1, 6, 6)
     local result = cephes.gamma(x)
 
-    tester:assert(result)
+    tester:assert(result ~= nil)
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     eq(result, torch.DoubleTensor({1, 1, 2, 6, 24, 120}, "expected vectorized gamma"))
 end
@@ -27,22 +27,22 @@ function vectorizeTests.testBeta()
     tester:assertError(function() cephes.beta(x) end, "should error when given too few parameters")
 
     local result = cephes.beta(x, y)
-    tester:assert(result, "call beta with both arguments tensors")
+    tester:assert(result ~= nil, "call beta with both arguments tensors")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
     result = cephes.beta(x, 1)
-    tester:assert(result, "call beta with first argument a tensor")
+    tester:assert(result ~= nil, "call beta with first argument a tensor")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
     result = cephes.beta(1, y)
-    tester:assert(result, "call beta with second argument a tensor")
+    tester:assert(result ~= nil, "call beta with second argument a tensor")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
     result = cephes.beta(1, 1)
-    tester:assert(result, "call beta with both arguments numbers")
+    tester:assert(result ~= nil, "call beta with both arguments numbers")
     tester:asserteq(type(result), "number")
 
     x = torch.linspace(-5, 5, n)
@@ -57,7 +57,7 @@ function vectorizeTests.testBeta()
     y = torch.linspace(1, 6, n)
     result = torch.zeros(n)
     cephes.beta(result, x, y)
-    tester:assert(result, "call beta with both arguments tensors, and output provided")
+    tester:assert(result ~= nil, "call beta with both arguments tensors, and output provided")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
@@ -66,44 +66,44 @@ function vectorizeTests.testBeta()
     local yMatrix = y:clone():resize(n/2, 2)
 
     cephes.beta(resultMatrix, xMatrix, yMatrix)
-    tester:assert(resultMatrix, "call beta with both matrix tensors, and output provided")
+    tester:assert(resultMatrix ~= nil, "call beta with both matrix tensors, and output provided")
     tester:asserteq(torch.typename(resultMatrix), "torch.DoubleTensor")
     tester:asserteq(resultMatrix:dim(), 2, "should get a matrix results")
     tester:asserteq(resultMatrix:size(1), n/2, "should get " .. n/2 .. " rows results")
     tester:asserteq(resultMatrix:size(2), 2, "should get " .. 2 .. " cols results")
 
     cephes.beta(resultMatrix, x, yMatrix)
-    tester:assert(resultMatrix, "call beta with tensor and matrix, and output provided")
+    tester:assert(resultMatrix ~= nil, "call beta with tensor and matrix, and output provided")
     tester:asserteq(torch.typename(resultMatrix), "torch.DoubleTensor")
     tester:asserteq(resultMatrix:size(1), n/2, "should get " .. n/2 .. " rows results")
     tester:asserteq(resultMatrix:size(2), 2, "should get " .. 2 .. " cols results")
 
     cephes.beta(resultMatrix, x, y)
-    tester:assert(resultMatrix, "call beta with both tensors, and output matrix provided")
+    tester:assert(resultMatrix ~= nil, "call beta with both tensors, and output matrix provided")
     tester:asserteq(torch.typename(resultMatrix), "torch.DoubleTensor")
     tester:asserteq(resultMatrix:size(1), n/2, "should get " .. n/2 .. " rows results")
     tester:asserteq(resultMatrix:size(2), 2, "should get " .. 2 .. " cols results")
 
     resultMatrix = cephes.beta(xMatrix, yMatrix)
-    tester:assert(resultMatrix, "call beta with both matrix tensors, and no provided")
+    tester:assert(resultMatrix ~= nil, "call beta with both matrix tensors, and no provided")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(resultMatrix:dim(), 1, "should get a vector results")
     tester:asserteq(resultMatrix:size(1), n, "should get " .. n .. " results")
 
     local result= torch.zeros(n)
     cephes.beta(result, x, 1)
-    tester:assert(result, "call beta with first argument a tensor")
+    tester:assert(result ~= nil, "call beta with first argument a tensor")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
     cephes.beta(result, 1, y)
-    tester:assert(result, "call beta with second argument a tensor")
+    tester:assert(result ~= nil, "call beta with second argument a tensor")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 
     tester:assertError(function() cephes.beta(result, 1, 1) end, "should error when trying to call function multiple times on constant arguments")
     result:resize(1)
-    tester:assert(result, "call beta with both arguments numbers")
+    tester:assert(result ~= nil, "call beta with both arguments numbers")
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), 1, "should get single result")
 
@@ -120,7 +120,7 @@ function vectorizeTests.testNdtr()
 
     local result = cephes.ndtr(x)
 
-    tester:assert(result)
+    tester:assert(result ~= nil)
     tester:asserteq(torch.typename(result), "torch.DoubleTensor")
     tester:asserteq(result:size(1), n, "should get " .. n .. " results")
 end

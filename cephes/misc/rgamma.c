@@ -137,7 +137,6 @@ static unsigned short R[] = {
 static char name[] = "rgamma";
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_chbevl ( double, void *, int );
 CEPHES_API double torch_cephes_exp ( double );
 CEPHES_API double torch_cephes_log ( double );
 CEPHES_API double torch_cephes_sin ( double );

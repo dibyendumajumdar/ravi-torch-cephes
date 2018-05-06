@@ -180,8 +180,6 @@ static double lossth = 1.073741824e9;
 #endif
 
 #ifdef ANSIPROT
-CEPHES_API double torch_cephes_polevl ( double, void *, int );
-CEPHES_API double torch_cephes_p1evl ( double, void *, int );
 CEPHES_API double torch_cephes_floor ( double );
 CEPHES_API double torch_cephes_ldexp ( double, int );
 CEPHES_API int torch_cephes_isnan ( double );
@@ -267,7 +265,7 @@ z = torch_cephes_floor(z);		/* integer part of y/8 */
 z = y - torch_cephes_ldexp( z, 3 );  /* y - 16 * (y/16) */
 
 /* integer and fractional part modulo one octant */
-j = z;
+j = (int) z;
 
 /* map zeros and singularities to origin */
 if( j & 1 )

@@ -404,7 +404,7 @@ local function create_wrapper(name, parameters, returnType)
         end
 
         if reportError > 0 and cephes.ffi.merror ~= 0 then
-            local errString =  "Cephes error '" .. ffi.string(cephes.ffi.errtxt) .. "'"
+            local errString =  "Cephes error '" .. cephes.ffi.errtxt .. "'"
             if reportError == 1 then
                 error(errString)
             else
