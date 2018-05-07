@@ -15,6 +15,28 @@ CEPHES_API int luaopen_cephes(lua_State *L);
 
 #include <stdio.h>
 
+
+/ Convert a table array to an array of doubles
+static double *to_double_array(lua_State *L, int &n) {
+  n = lua_objlen(L, -1);
+  double *x = calloc(sizeof(double), n);
+  if (!x) return NULL;
+  bool ok = true;
+  for (int i = 0; i < n && ok; i++) {
+    lua_rawgeti(L, -1, i + 1);
+    if (lua_isnumber(L, -1))
+      x[i] = lua_tonumber(L, -1);
+    else
+      ok = false;
+    lua_pop(L, 1);
+  }
+  if (!ok) {
+    free(x);
+    x = NULL;
+  }
+  return x;
+}
+
 // name(D)->D
 #define MAKE_FUNC_D_D(name)                                                    \
   static int lua_##name(lua_State *L) {                                        \
