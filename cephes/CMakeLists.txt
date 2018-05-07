@@ -1,3 +1,22 @@
+option(USE_LUA53 "Controls whether the library will be for Lua 5.3 or Ravi, default is OFF" OFF)
+
+find_package(Lua REQUIRED)
+
+message(STATUS "LUA_INCLUDE_DIR: ${LUA_INCLUDE_DIR}")
+message(STATUS "LUA_LIBRARIES  : ${LUA_LIBRARIES}")
+
+message(STATUS "LUA_INCDIR     : ${LUA_INCDIR}")
+message(STATUS "LUA_LIBDIR     : ${LUA_LIBDIR}")
+message(STATUS "LUA_BINDIR     : ${LUA_BINDIR}")
+message(STATUS "LUALIB         : ${LUALIB}")
+message(STATUS "LIBDIR (LUA_CPATH)  : ${LIBDIR}")
+message(STATUS "LUADIR (LUA_PATH)   : ${LUADIR}")
+
+INCLUDE_DIRECTORIES("${CMAKE_CURRENT_BINARY_DIR}")
+INCLUDE_DIRECTORIES("${LUA_INCDIR}")
+LINK_DIRECTORIES("${LUA_LIBDIR}")
+
+
 # locate all cephes subfolders to process
 FILE(GLOB src
     "bessel/*.c"
@@ -7,7 +26,11 @@ FILE(GLOB src
     "ellf/*.c"
     "polyn/*.c"
     "torch_mtherr.c"
+    "luabindings/cephes_lua_api.c"
     )
+
+INCLUDE_DIRECTORIES("include")
+
 # note: single/ is not compiled because it conflicts
 # with many functions in cmath and cprob :(
 
@@ -57,6 +80,30 @@ FILE(GLOB luasrc "luasrc/*.lua")
 # TODO: install the tests, too
 # ADD_SUBDIRECTORY(tests)
 
-ADD_TORCH_PACKAGE(cephes "${src}" "${luasrc}")
+# When using MSVC
+IF(MSVC)
+  # we want to respect the standard, and we are bored of those **** .
+  ADD_DEFINITIONS(-D_CRT_SECURE_NO_DEPRECATE=1)
+ENDIF(MSVC)
+
+ADD_LIBRARY("cephes" SHARED ${src})
+set_target_properties("cephes" PROPERTIES PREFIX "")
+SET_TARGET_PROPERTIES("cephes" PROPERTIES
+  DEFINE_SYMBOL "CEPHES_EXPORTS"
+  IMPORT_PREFIX "lib")
+
+IF(APPLE)
+  SET_TARGET_PROPERTIES("cephes" PROPERTIES
+    LINK_FLAGS "-undefined dynamic_lookup")
+ENDIF()
+
+# INSTALL(FILES ${luasrc} DESTINATION ${LUADIR}/cephes)
+INSTALL(TARGETS cephes
+  LIBRARY DESTINATION ${LIBDIR}
+  RUNTIME DESTINATION ${LUA_BINDIR})
+
+IF(LUALIB)
+  TARGET_LINK_LIBRARIES(cephes ${LUALIB})
+ENDIF()
 
 
