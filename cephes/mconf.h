@@ -392,9 +392,6 @@ CEPHES_API double torch_cephes_smirnov ( int, double );
 CEPHES_API double torch_cephes_smirnovi ( int, double );
 CEPHES_API double torch_cephes_kolmogorov ( double );
 CEPHES_API double torch_cephes_kolmogi ( double );
-CEPHES_API double torch_cephes_log1p ( double );
-CEPHES_API double torch_cephes_expm1 ( double );
-CEPHES_API double torch_cephes_cosm1 ( double );
 
 /* polyn.c */
 CEPHES_API void torch_cephes_polini ( int maxdeg );

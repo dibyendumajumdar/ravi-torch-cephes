@@ -55,7 +55,7 @@
    */
 
 #include <stdio.h>
-#include "cmath/mconf.h"
+#include "mconf.h"
 
 CEPHES_API int torch_cephes_merror;
 int torch_cephes_merror = 0;
