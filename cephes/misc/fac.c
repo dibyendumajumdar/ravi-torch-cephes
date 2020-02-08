@@ -206,11 +206,6 @@ static unsigned short factbl[] = {
 #define MAXFAC 170
 #endif
 
-#ifdef ANSIPROT
-double torch_cephes_gamma ( double );
-#else
-double torch_cephes_gamma();
-#endif
 CEPHES_API double torch_cephes_MAXNUM;
 
 double torch_cephes_fac(i)

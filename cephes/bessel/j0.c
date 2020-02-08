@@ -458,18 +458,6 @@ static unsigned short RQ[32] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_j0 ( double );
-CEPHES_API double torch_cephes_y0(double);
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_log(),
-    torch_cephes_sin(), torch_cephes_cos(), torch_cephes_sqrt();
-double torch_cephes_j0();
-#endif
 CEPHES_API double torch_cephes_TWOOPI, torch_cephes_SQ2OPI, torch_cephes_PIO4;
 
 double torch_cephes_j0(x)

@@ -60,13 +60,6 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_floor ( double );
-#else
-double torch_cephes_fabs(), torch_cephes_pow(), torch_cephes_floor();
-#endif
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 
 /* Expansion coefficients

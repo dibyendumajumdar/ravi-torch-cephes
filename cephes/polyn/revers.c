@@ -67,22 +67,9 @@ Copyright 1984, 1987, 1989, 1992, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-CEPHES_API int torch_cephes_MAXPOL; /* initialized by polini() */
+#include <stdlib.h>
 
-#ifdef ANSIPROT
-/* See polyn.c.  */
-void torch_cephes_polmov ( double *, int, double * );
-void torch_cephes_polclr ( double *, int );
-void torch_cephes_poladd ( double *, int, double *, int, double * );
-void torch_cephes_polmul ( double *, int, double *, int, double * );
-void * malloc ( unsigned long );
-void free ( void * );
-#else
-void torch_cephes_polmov(), torch_cephes_polclr(), torch_cephes_poladd(),
-    torch_cephes_polmul();
-void * malloc( unsigned long);
-void free ();
-#endif
+CEPHES_API int torch_cephes_MAXPOL; /* initialized by polini() */
 
 void torch_cephes_revers( y, x, n)
 double y[], x[];

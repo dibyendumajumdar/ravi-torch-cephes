@@ -27,13 +27,7 @@
  
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_floor ( double );
-double torch_cephes_euclid( double *, double * );
-#else
-double torch_cephes_fabs(), torch_cephes_floor(), torch_cephes_euclid();
-#endif
+double torch_cephes_euclid(double*, double*);
 
 CEPHES_API double torch_cephes_MACHEP;
 #define BIG (1.0/torch_cephes_MACHEP)

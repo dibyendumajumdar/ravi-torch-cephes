@@ -42,59 +42,12 @@ Cephes Math Library Release 2.8:  June, 2000
 Copyright 1984, 1995, 2000 by Stephen L. Moshier
 */
 #include "mconf.h"
-#ifdef ANSIPROT
 static void cchsh ( double x, double *c, double *s );
 static double redupi ( double x );
 static double ctans ( cmplx *z );
-/* These are supposed to be in some standard place. */
-CEPHES_API double torch_cephes_fabs (double);
-CEPHES_API double torch_cephes_sqrt (double);
-CEPHES_API double torch_cephes_pow (double, double);
-CEPHES_API double torch_cephes_log (double);
-CEPHES_API double torch_cephes_exp (double);
-CEPHES_API double torch_cephes_atan2 (double, double);
-CEPHES_API double torch_cephes_cosh (double);
-CEPHES_API double torch_cephes_sinh (double);
-CEPHES_API double torch_cephes_asin (double);
-CEPHES_API double torch_cephes_sin (double);
-CEPHES_API double torch_cephes_cos (double);
-CEPHES_API double torch_cephes_cabs (cmplx *);
-CEPHES_API void torch_cephes_cadd ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cmul ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_csqrt ( cmplx *, cmplx * );
 static void cchsh ( double, double *, double * );
 static double redupi ( double );
 static double ctans ( cmplx * );
-CEPHES_API void torch_cephes_clog ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cexp ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_csin ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_ccos ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_ctan ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_ccot  ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_casin ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cacos ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_catan ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_csinh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_casinh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_ccosh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cacosh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_ctanh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_catanh ( cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cpow ( cmplx *, cmplx *, cmplx * );
-#else
-static void cchsh();
-static double redupi();
-static double ctans();
-double torch_cephes_cabs(), torch_cephes_fabs(), torch_cephes_sqrt(),
-    torch_cephes_pow();
-double torch_cephes_log(), torch_cephes_exp(), torch_cephes_atan2(),
-    torch_cephes_cosh(), torch_cephes_sinh();
-double torch_cephes_asin(), torch_cephes_sin(), torch_cephes_cos();
-void torch_cephes_cadd(), torch_cephes_cmul(), torch_cephes_csqrt();
-void torch_cephes_clog(), torch_cephes_casin(), torch_cephes_cacos(),
-    torch_cephes_catan();
-#endif
-
 
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP,
     torch_cephes_PI, torch_cephes_PIO2;

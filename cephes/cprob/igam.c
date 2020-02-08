@@ -83,17 +83,6 @@ Copyright 1985, 1987, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_lgam ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_igam ( double, double );
-CEPHES_API double torch_cephes_igamc ( double, double );
-#else
-double torch_cephes_lgam(), torch_cephes_exp(), torch_cephes_log(),
-    torch_cephes_fabs(), torch_cephes_igam(), torch_cephes_igamc();
-#endif
 
 CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXLOG, torch_cephes_NAN;
 static double big = 4.503599627370496e15;

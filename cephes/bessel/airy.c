@@ -822,19 +822,6 @@ static unsigned short APGD[40] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API int torch_cephes_airy(double, double *, double *, double *, double *);
-#else
-double torch_cephes_fabs(), torch_cephes_exp(), torch_cephes_sqrt();
-double torch_cephes_polevl(), torch_cephes_p1evl(),
-    torch_cephes_sin(), torch_cephes_cos();
-#endif
-
 int torch_cephes_airy( x, ai, aip, bi, bip )
 double x, *ai, *aip, *bi, *bip;
 {

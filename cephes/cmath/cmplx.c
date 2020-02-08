@@ -71,34 +71,6 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_cabs ( cmplx * );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_atan2 ( double, double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API void torch_cephes_cdiv ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cadd ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_csub ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cmul ( cmplx *, cmplx *, cmplx * );
-CEPHES_API void torch_cephes_cmov ( void *, void * );
-CEPHES_API void torch_cephes_cneg ( cmplx * );
-CEPHES_API double torch_cephes_cabs( cmplx * );
-CEPHES_API void torch_cephes_csqrt( cmplx *, cmplx * );
-CEPHES_API double torch_cephes_hypot( double, double );
-#else
-double torch_cephes_fabs(), torch_cephes_cabs(), torch_cephes_sqrt(),
-    torch_cephes_atan2(), torch_cephes_cos(), torch_cephes_sin();
-double torch_cephes_sqrt(), torch_cephes_frexp(), torch_cephes_ldexp();
-int torch_cephes_isnan();
-void torch_cephes_cdiv(), torch_cephes_cadd();
-#endif
-
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_PI,
     torch_cephes_PIO2, torch_cephes_INFINITY, torch_cephes_NAN;
 /*

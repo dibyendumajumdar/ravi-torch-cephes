@@ -205,23 +205,6 @@ static short B4[48] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_spence ( double );
-CEPHES_API double torch_cephes_zetac ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_powi ( double, int );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_fac ( int i );
-CEPHES_API double torch_cephes_fabs (double);
-double torch_cephes_polylog (int, double);
-#else
-CEPHES_API double torch_cephes_spence(), torch_cephes_polevl(),
-    torch_cephes_p1evl(), torch_cephes_zetac();
-CEPHES_API double torch_cephes_pow(), torch_cephes_powi(), torch_cephes_log();
-CEPHES_API double torch_cephes_fac(); /* factorial */
-CEPHES_API double torch_cephes_fabs();
-double torch_cephes_polylog();
-#endif
 CEPHES_API double torch_cephes_MACHEP;
 
 double

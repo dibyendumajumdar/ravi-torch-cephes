@@ -20,22 +20,6 @@
 
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_lgam ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_smirnov ( int, double );
-CEPHES_API double torch_cephes_kolmogorov ( double );
-#else
-double torch_cephes_pow (), torch_cephes_floor (), torch_cephes_lgam (),
-    torch_cephes_exp (), torch_cephes_sqrt (), torch_cephes_log (),
-    torch_cephes_fabs ();
-double torch_cephes_smirnov (), torch_cephes_kolmogorov ();
-#endif
 CEPHES_API double torch_cephes_MAXLOG;
 
 /* Exact Smirnov statistic, for one-sided test.  */

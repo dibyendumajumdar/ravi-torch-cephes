@@ -226,12 +226,6 @@ static double sintbl[92] = {
   9.99847695156391239157E-1,
 };
 
-#ifdef ANSIPROT
-double torch_cephes_floor ( double );
-#else
-double torch_cephes_floor();
-#endif
-
 int torch_cephes_sincos(x, s, c, flg)
 double x;
 double *s, *c;

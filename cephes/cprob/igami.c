@@ -52,19 +52,6 @@ Copyright 1984, 1987, 1995, 2000 by Stephen L. Moshier
 
 CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM, torch_cephes_MAXLOG,
     torch_cephes_MINLOG;
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_igamc ( double, double );
-CEPHES_API double torch_cephes_ndtri ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_lgam ( double );
-#else
-double torch_cephes_igamc(), torch_cephes_ndtri(), torch_cephes_exp(),
-    torch_cephes_fabs(), torch_cephes_log(), torch_cephes_sqrt(),
-    torch_cephes_lgam();
-#endif
 
 double torch_cephes_igami( a, y0 )
 double a, y0;

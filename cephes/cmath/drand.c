@@ -47,11 +47,7 @@
  */
 
 #include "mconf.h"
-#ifdef ANSIPROT
 static int ranwh ( void );
-#else
-static int ranwh();
-#endif
 
 CEPHES_API int torch_cephes_drand( double * );
 

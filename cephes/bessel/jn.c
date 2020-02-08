@@ -46,14 +46,6 @@ Cephes Math Library Release 2.8:  June, 2000
 Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_j0 ( double );
-CEPHES_API double torch_cephes_j1 ( double );
-CEPHES_API double torch_cephes_jn(int, double);
-#else
-double torch_cephes_fabs(), torch_cephes_j0(), torch_cephes_j1();
-#endif
 CEPHES_API double torch_cephes_MACHEP;
 
 double torch_cephes_jn( n, x )

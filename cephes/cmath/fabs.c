@@ -29,8 +29,6 @@
 #endif
 #endif
 
-CEPHES_API double torch_cephes_fabs( double );
-
 double torch_cephes_fabs(x)
 double x;
 {

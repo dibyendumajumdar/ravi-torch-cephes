@@ -241,14 +241,6 @@ static short S[16] = {
 #define MOREBITS 6.123233995736765886130E-17
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_asin ( double );
-CEPHES_API double torch_cephes_acos( double );
-#else
-double torch_cephes_sqrt(), torch_cephes_polevl(), torch_cephes_p1evl();
-double torch_cephes_asin();
-#endif
 CEPHES_API double torch_cephes_PIO2, torch_cephes_PIO4, torch_cephes_NAN;
 
 double torch_cephes_asin(x)

@@ -44,14 +44,6 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API int torch_cephes_signbit ( double );
-#else
-double torch_cephes_log(), torch_cephes_frexp();
-int torch_cephes_signbit();
-#endif
 CEPHES_API double torch_cephes_NEGZERO, torch_cephes_INFINITY,
   torch_cephes_MAXNUM, torch_cephes_MAXLOG, torch_cephes_MINLOG,
   torch_cephes_LOGE2;

@@ -269,25 +269,7 @@ static unsigned short SQT[4] = {
 int torch_cephes_sgngam = 0;
 CEPHES_API int torch_cephessgngam;
 CEPHES_API double torch_cephes_MAXLOG, torch_cephes_MAXNUM, torch_cephes_PI;
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
 static double stirf ( double );
-double torch_cephes_lgam ( double );
-#else
-double torch_cephes_pow(), torch_cephes_log(), torch_cephes_exp(),
-    torch_cephes_sin(), torch_cephes_polevl(), torch_cephes_p1evl(),
-    torch_cephes_floor(), torch_cephes_fabs();
-int torch_cephes_isnan(), torch_cephes_isfinite();
-static double stirf();
-double torch_cephes_lgam();
-#endif
 #ifdef INFINITIES
 CEPHES_API double torch_cephes_INFINITY;
 #endif

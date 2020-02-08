@@ -493,18 +493,6 @@ static unsigned short S[20] = {
 /*
  * Riemann zeta function, minus one
  */
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_zetac ( double );
-#else
-double torch_cephes_sin(), torch_cephes_floor(), torch_cephes_gamma(),
-    torch_cephes_pow(), torch_cephes_exp();
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_zetac();
-#endif
 CEPHES_API double torch_cephes_MACHEP;
 
 double torch_cephes_zetac(x)

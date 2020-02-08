@@ -50,11 +50,6 @@ Cephes Math Library Release 2.8:  June, 2000
 Copyright 1984, 1987, 1995, 2000 by Stephen L. Moshier
 */
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_incbet ( double, double, double );
-#else
-double torch_cephes_incbet();
-#endif
 
 double torch_cephes_btdtr( a, b, x )
 double a, b, x;

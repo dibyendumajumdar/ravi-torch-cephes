@@ -57,18 +57,7 @@ Copyright 1999 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_polylog (int, double);
-CEPHES_API double torch_cephes_exp (double);
-CEPHES_API double torch_cephes_log1p (double); /* log(1+x) */
-CEPHES_API double torch_cephes_expm1 (double); /* exp(x) - 1 */
-double torch_cephes_planckc(double, double);
-double torch_cephes_plancki(double, double);
-#else
-double torch_cephes_polylog(), torch_cephes_exp(), torch_cephes_log1p(),
-    torch_cephes_expm1();
-double torch_cephes_planckc(), torch_cephes_plancki();
-#endif
+
 
 /*  NIST value (1999): 2 pi h c^2 = 3.741 7749(22) Å◊ 10-16 W m2  */
 static double planck_c1 = 3.7417749e-16;

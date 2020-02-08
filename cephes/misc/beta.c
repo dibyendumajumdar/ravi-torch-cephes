@@ -64,17 +64,6 @@ Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 #define MAXGAM 171.624376956302725
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_lgam ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_floor ( double );
-#else
-double torch_cephes_fabs(), torch_cephes_gamma(), torch_cephes_lgam(),
-    torch_cephes_exp(), torch_cephes_log(), torch_cephes_floor();
-#endif
 CEPHES_API double torch_cephes_MAXLOG, torch_cephes_MAXNUM;
 CEPHES_API int torch_cephes_sgngam;
 

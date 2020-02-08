@@ -382,7 +382,7 @@ CEPHES_API double torch_cephes_tandg ( double x );
 CEPHES_API double torch_cephes_cotdg ( double x );
 CEPHES_API double torch_cephes_tanh ( double );
 CEPHES_API double torch_cephes_log1p ( double );
-CEPHES_API double torch_cephes_exmp1 ( double );
+CEPHES_API double torch_cephes_expm1 ( double );
 CEPHES_API double torch_cephes_cosm1 ( double x );
 CEPHES_API double torch_cephes_yn ( int, double );
 CEPHES_API double torch_cephes_zeta ( double x, double q );
@@ -415,4 +415,12 @@ CEPHES_API void torch_cephes_polatn ( double num[], double den[], double ans[],
 CEPHES_API void torch_cephes_polsqt ( double pol[], double ans[], int nn );
 CEPHES_API void torch_cephes_polsin ( double x[], double y[], int nn );
 CEPHES_API void torch_cephes_polcos ( double x[], double y[], int nn );
+
+CEPHES_API double torch_cephes_planckc(double, double);
+CEPHES_API double torch_cephes_plancki(double, double);
+CEPHES_API double torch_cephes_planckd(double, double);
+CEPHES_API double torch_cephes_planckw(double);
+CEPHES_API double torch_cephes_polylog(int, double);
+CEPHES_API double torch_cephes_ei(double);
+
 #endif

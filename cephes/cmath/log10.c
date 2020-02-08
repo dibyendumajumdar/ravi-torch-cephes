@@ -141,17 +141,6 @@ static unsigned short Q[] = {
 #define L10EA 4.3359375E-1
 #define L10EB 7.00731903251827651129E-4
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
-CEPHES_API double torch_cephes_log10( double );
-#else
-double torch_cephes_frexp(), torch_cephes_ldexp(), torch_cephes_polevl(),
-    torch_cephes_p1evl();
-int torch_cephes_isnan(), torch_cephes_isfinite();
-#endif
 CEPHES_API double torch_cephes_LOGE2, torch_cephes_SQRT2, torch_cephes_INFINITY,
     torch_cephes_NAN;
 

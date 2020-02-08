@@ -72,10 +72,6 @@ Copyright 1984, 1995 by Stephen L. Moshier
 #endif
 #endif
 
-CEPHES_API int torch_cephes_signbit( double );
-CEPHES_API int torch_cephes_isnan( double );
-CEPHES_API int torch_cephes_isfinite( double );
-
 /* Return 1 if the sign bit of x is 1, else 0.  */
 
 int torch_cephes_signbit(x)

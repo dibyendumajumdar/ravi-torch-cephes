@@ -118,17 +118,6 @@ static unsigned short Q[] = {
 #define MINL2 -1022.0
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
-CEPHES_API double torch_cephes_exp2( double );
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
-  torch_cephes_ldexp();
-int torch_cephes_isnan(), torch_cephes_isfinite();
-#endif
 #ifdef INFINITIES
 CEPHES_API double torch_cephes_INFINITY;
 #endif

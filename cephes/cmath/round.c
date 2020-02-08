@@ -33,11 +33,6 @@ Copyright 1984, 1987, 1989 by Stephen L. Moshier
 Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 */
 #include "mconf.h"
-#ifdef ANSIPROT
-double torch_cephes_floor ( double );
-#else
-double torch_cephes_floor();
-#endif
 
 double torch_cephes_round(x)
 double x;

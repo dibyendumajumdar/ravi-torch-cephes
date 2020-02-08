@@ -56,39 +56,11 @@ Copyright 1984, 1987, 1989, 1992, 2000 by Stephen L. Moshier
 #define MAXGAM 171.624376956302725
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API int torch_cephes_airy ( double, double *, double *, double *, double * );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API double torch_cephes_j0 ( double );
-CEPHES_API double torch_cephes_j1 ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_cbrt ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API double torch_cephes_acos ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_lgam ( double );
-CEPHES_API double torch_cephes_jv(double, double);
 static double recur(double *, double, double *, int);
 static double jvs(double, double);
 static double hankel(double, double);
 static double jnx(double, double);
 static double jnt(double, double);
-#else
-int torch_cephes_airy();
-double torch_cephes_fabs(), torch_cephes_floor(), torch_cephes_frexp(),
-    torch_cephes_polevl(), torch_cephes_j0(), torch_cephes_j1(),
-    torch_cephes_sqrt(), torch_cephes_cbrt();
-double torch_cephes_exp(), torch_cephes_log(),
-    torch_cephes_sin(), torch_cephes_cos(), torch_cephes_acos(),
-    torch_cephes_pow(), torch_cephes_gamma(), torch_cephes_lgam();
-static double recur(), jvs(), hankel(), jnx(), jnt();
-#endif
 
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MINLOG,
     torch_cephes_MAXLOG;

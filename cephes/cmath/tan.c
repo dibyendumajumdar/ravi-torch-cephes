@@ -179,18 +179,7 @@ static unsigned short P3[] = {
 static double lossth = 1.073741824e9;
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
 static double torch_cephes_tancot(double, int);
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
-    torch_cephes_ldexp();
-static double torch_cephes_tancot();
-int torch_cephes_isnan(), torch_cephes_isfinite();
-#endif
 CEPHES_API double torch_cephes_PIO4;
 CEPHES_API double torch_cephes_INFINITY;
 CEPHES_API double torch_cephes_NAN;

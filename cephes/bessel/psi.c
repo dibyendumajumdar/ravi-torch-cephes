@@ -108,15 +108,6 @@ static unsigned short A[] = {
 
 #define EUL 0.57721566490153286061
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_tan ( double );
-CEPHES_API double torch_cephes_psi(double);
-#else
-double torch_cephes_floor(), torch_cephes_log(), torch_cephes_tan(),
-    torch_cephes_polevl();
-#endif
 CEPHES_API double torch_cephes_PI, torch_cephes_MAXNUM;
 
 

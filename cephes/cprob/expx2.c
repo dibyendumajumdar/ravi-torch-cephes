@@ -37,16 +37,6 @@ Copyright 2000 by Stephen L. Moshier
 
 #include "mconf.h"
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs (double);
-CEPHES_API double torch_cephes_floor (double);
-CEPHES_API double torch_cephes_exp (double);
-#else
-double torch_cephes_fabs();
-double torch_cephes_floor();
-double torch_cephes_exp();
-#endif
-
 #ifdef DEC
 #define M 32.0
 #define MINV .03125

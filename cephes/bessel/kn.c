@@ -81,16 +81,6 @@ asymptotically, where
 
 #define EUL 5.772156649015328606065e-1
 #define MAXFAC 31
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_kn(int, double);
-#else
-double torch_cephes_fabs(), torch_cephes_exp(), torch_cephes_log(),
-    torch_cephes_sqrt();
-#endif
 CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM, torch_cephes_MAXLOG,
     torch_cephes_PI;
 

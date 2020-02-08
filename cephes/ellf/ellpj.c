@@ -62,23 +62,6 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_sin ( double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API double torch_cephes_asin ( double );
-CEPHES_API double torch_cephes_tanh ( double );
-CEPHES_API double torch_cephes_sinh ( double );
-CEPHES_API double torch_cephes_cosh ( double );
-CEPHES_API double torch_cephes_atan ( double );
-CEPHES_API double torch_cephes_exp ( double );
-#else
-double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_sin(),
-    torch_cephes_cos(), torch_cephes_asin(), torch_cephes_tanh();
-double torch_cephes_sinh(), torch_cephes_cosh(), torch_cephes_atan(),
-    torch_cephes_exp();
-#endif
 CEPHES_API double torch_cephes_PIO2, torch_cephes_MACHEP;
 
 int torch_cephes_ellpj( u, m, sn, cn, dn, ph )

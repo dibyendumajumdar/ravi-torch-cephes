@@ -384,22 +384,7 @@ static unsigned short U[] = {
 #define UTHRESH 37.519379347
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_expx2 ( double, int );
-double torch_cephes_erf ( double );
-double torch_cephes_erfc ( double );
 static double erfce ( double );
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_exp(),
-    torch_cephes_log(), torch_cephes_fabs();
-double torch_cephes_erf(), torch_cephes_erfc(), torch_cephes_expx2(),
-    torch_cephes_sqrt();
-static double erfce();
-#endif
 
 double torch_cephes_ndtr(a)
 double a;

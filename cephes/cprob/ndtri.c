@@ -360,13 +360,6 @@ static unsigned short Q2[32] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_log(),
-    torch_cephes_sqrt();
-#endif
 
 double torch_cephes_ndtri(y0)
 double y0;

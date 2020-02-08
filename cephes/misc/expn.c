@@ -49,16 +49,6 @@
    Copyright 1985, 2000 by Stephen L. Moshier */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-#else
-double torch_cephes_pow(), torch_cephes_gamma(), torch_cephes_log(),
-    torch_cephes_exp(), torch_cephes_fabs();
-#endif
 #define EUL 0.57721566490153286060
 #define BIG  1.44115188075855872E+17
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP, torch_cephes_MAXLOG;

@@ -53,11 +53,6 @@ typedef struct
 	double i;
 	}cmplx;
 */
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-#else
-double torch_cephes_fabs();
-#endif
 
 int torch_cephes_polrt( xcof, cof, m, root )
 double xcof[], cof[];

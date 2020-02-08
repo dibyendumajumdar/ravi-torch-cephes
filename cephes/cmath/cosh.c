@@ -45,15 +45,6 @@ Copyright 1985, 1995, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
-CEPHES_API double torch_cephes_cosh( double );
-#else
-double torch_cephes_exp();
-int torch_cephes_isnan(), torch_cephes_isfinite();
-#endif
 CEPHES_API double torch_cephes_MAXLOG, torch_cephes_INFINITY, torch_cephes_LOGE2;
 
 double torch_cephes_cosh(x)

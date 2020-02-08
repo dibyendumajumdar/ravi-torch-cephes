@@ -89,25 +89,8 @@ Copyright 1984, 1987, 1992, 2000 by Stephen L. Moshier
 
 #define ETHRESH 1.0e-12
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_round ( double );
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_psi ( double );
-static double hyt2f1(double, double, double, double, double *);
-static double hys2f1(double, double, double, double, double *);
-CEPHES_API double torch_cephes_hyp2f1(double, double, double, double);
-#else
-double torch_cephes_fabs(), torch_cephes_pow(),
-    torch_cephes_round(), torch_cephes_gamma(), torch_cephes_log(),
-    torch_cephes_exp(), torch_cephes_psi();
-static double hyt2f1();
-static double hys2f1();
-double torch_cephes_hyp2f1();
-#endif
+static double hyt2f1(double, double, double, double, double*);
+static double hys2f1(double, double, double, double, double*);
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MACHEP;
 
 double torch_cephes_hyp2f1( a, b, c, x )

@@ -445,14 +445,6 @@ static unsigned short gd[44] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_cos ( double );
-CEPHES_API double torch_cephes_sin ( double );
-#else
-double torch_cephes_fabs(), torch_cephes_cos(), torch_cephes_sin(),
-    torch_cephes_polevl(), torch_cephes_p1evl();
-#endif
 CEPHES_API double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP;
 
 int torch_cephes_fresnl( xxa, ssa, cca )

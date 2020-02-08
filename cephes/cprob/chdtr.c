@@ -148,16 +148,6 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_igamc ( double, double );
-CEPHES_API double torch_cephes_igam ( double, double );
-CEPHES_API double torch_cephes_igami ( double, double );
-CEPHES_API double torch_cephes_chdtrc(double, double);
-CEPHES_API double torch_cephes_chdtr(double, double);
-CEPHES_API double torch_cephes_chdtri(double, double);
-#else
-double torch_cephes_igamc(), torch_cephes_igam(), torch_cephes_igami();
-#endif
 
 double torch_cephes_chdtrc(df,x)
 double df, x;

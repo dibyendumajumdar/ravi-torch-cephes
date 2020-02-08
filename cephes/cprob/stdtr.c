@@ -87,16 +87,6 @@ Copyright 1984, 1987, 1995, 2000 by Stephen L. Moshier
 #include "mconf.h"
 
 CEPHES_API double torch_cephes_PI, torch_cephes_MACHEP, torch_cephes_MAXNUM;
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_atan ( double );
-CEPHES_API double torch_cephes_incbet ( double, double, double );
-CEPHES_API double torch_cephes_incbi ( double, double, double );
-CEPHES_API double torch_cephes_fabs ( double );
-#else
-double torch_cephes_sqrt(), torch_cephes_atan(), torch_cephes_incbet(),
-   torch_cephes_incbi(), torch_cephes_fabs();
-#endif
 
 double torch_cephes_stdtr( k, t )
 int k;

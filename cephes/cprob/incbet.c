@@ -68,21 +68,9 @@ Copyright 1984, 1995, 2000 by Stephen L. Moshier
 #endif
 
 CEPHES_API double torch_cephes_MACHEP, torch_cephes_MINLOG, torch_cephes_MAXLOG;
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_gamma ( double );
-CEPHES_API double torch_cephes_lgam ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_fabs ( double );
 static double incbcf(double, double, double);
 static double incbd(double, double, double);
 static double pseries(double, double, double);
-#else
-double torch_cephes_gamma(), torch_cephes_lgam(), torch_cephes_exp(),
-    torch_cephes_log(), torch_cephes_pow(), torch_cephes_fabs();
-static double incbcf(), incbd(), pseries();
-#endif
 
 static double big = 4.503599627370496e15;
 static double biginv =  2.22044604925031308085e-16;

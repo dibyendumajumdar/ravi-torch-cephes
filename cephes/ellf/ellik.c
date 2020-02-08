@@ -54,21 +54,6 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 /*	Incomplete elliptic integral of first kind	*/
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_tan ( double );
-CEPHES_API double torch_cephes_atan ( double );
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_ellpk ( double );
-double torch_cephes_ellik ( double, double );
-#else
-double torch_cephes_sqrt(), torch_cephes_fabs(), torch_cephes_log(),
-    torch_cephes_tan(), torch_cephes_atan(), torch_cephes_floor(),
-    torch_cephes_ellpk();
-double torch_cephes_ellik();
-#endif
 CEPHES_API double torch_cephes_PI, torch_cephes_PIO2, torch_cephes_MACHEP,
     torch_cephes_MAXNUM;
 

@@ -334,24 +334,7 @@ static unsigned short R[] = {
 #define Ha Wb
 #define Hb Wb
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_frexp ( double, int * );
-CEPHES_API double torch_cephes_ldexp ( double, int );
-CEPHES_API double torch_cephes_powi ( double, int );
-CEPHES_API int torch_cephes_signbit ( double );
-CEPHES_API int torch_cephes_isnan ( double );
-CEPHES_API int torch_cephes_isfinite ( double );
-CEPHES_API double torch_cephes_pow( double, double );
 static double reduc ( double );
-#else
-double torch_cephes_floor(), torch_cephes_fabs(), torch_cephes_frexp(),
-    torch_cephes_ldexp();
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_powi();
-int torch_cephes_signbit(), torch_cephes_isnan(), torch_cephes_isfinite();
-static double reduc();
-#endif
 CEPHES_API double torch_cephes_MAXNUM;
 #ifdef INFINITIES
 CEPHES_API double torch_cephes_INFINITY;

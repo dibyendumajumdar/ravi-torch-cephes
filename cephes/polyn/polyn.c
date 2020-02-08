@@ -60,31 +60,9 @@
  */
 
 #include <stdio.h>
-#include "mconf.h"
-#if ANSIPROT
-void exit (int);
-CEPHES_API void * malloc ( unsigned long );
-CEPHES_API void free ( void * );
-void torch_cephes_polclr ( double *, int );
-void torch_cephes_polmov ( double *, int, double * );
-void torch_cephes_polmul ( double *, int, double *, int, double * );
-int torch_cephes_poldiv ( double *, int, double *, int, double * );
-#else
-void exit();
-void * malloc();
-void free ();
-void torch_cephes_polclr(), torch_cephes_polmov(), torch_cephes_poldiv(),
-    torch_cephes_polmul();
-#endif
-#ifndef NULL
-#define NULL 0
-#endif
+#include <stdlib.h>
 
-/* near pointer version of malloc() */
-/*
-#define malloc _nmalloc
-#define free _nfree
-*/
+#include "mconf.h"
 
 /* Pointers to internal arrays.  Note poldiv() allocates
  * and deallocates some temporary arrays every time it is called.

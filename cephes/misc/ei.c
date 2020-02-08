@@ -40,13 +40,6 @@ Copyright 1999 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_exp ( double );
-#else
-CEPHES_API double torch_cephes_log(), torch_cephes_exp(), torch_cephes_polevl(),
-    torch_cephes_p1evl();
-#endif
 
 #define EUL 5.772156649015328606065e-1
 

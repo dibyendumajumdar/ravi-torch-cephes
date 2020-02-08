@@ -147,16 +147,6 @@ Copyright 1984, 1987, 1995, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_incbet ( double, double, double );
-CEPHES_API double torch_cephes_incbi ( double, double, double );
-CEPHES_API double torch_cephes_pow ( double, double );
-CEPHES_API double torch_cephes_log1p ( double );
-CEPHES_API double torch_cephes_expm1 ( double );
-#else
-double torch_cephes_incbet(), torch_cephes_incbi(), torch_cephes_pow(),
-    torch_cephes_log1p(), torch_cephes_expm1();
-#endif
 
 double torch_cephes_bdtrc( k, n, p )
 int k, n;

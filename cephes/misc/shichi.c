@@ -499,14 +499,6 @@ static unsigned short C2[] = {
 
 /* Sine and cosine integrals */
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-#else
-double torch_cephes_log(), torch_cephes_exp(), torch_cephes_fabs(),
-    torch_cephes_chbevl();
-#endif
 #define EUL 0.57721566490153286061
 CEPHES_API double torch_cephes_MACHEP, torch_cephes_MAXNUM, torch_cephes_PIO2;
 

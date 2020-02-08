@@ -350,16 +350,6 @@ static unsigned short B[] = {
 #endif
 
 /*							i1.c	*/
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_exp ( double );
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_fabs ( double );
-CEPHES_API double torch_cephes_i1 ( double );
-CEPHES_API double torch_cephes_i1e ( double );
-#else
-double torch_cephes_chbevl(), torch_cephes_exp(), torch_cephes_sqrt(),
-    torch_cephes_fabs();
-#endif
 
 double torch_cephes_i1(x)
 double x;

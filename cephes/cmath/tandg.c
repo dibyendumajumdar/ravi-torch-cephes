@@ -146,15 +146,7 @@ static unsigned short P1[] = {
 static double lossth = 1.0e14;
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_floor ( double );
-CEPHES_API double torch_cephes_ldexp ( double, int );
 static double tancot( double, int );
-#else
-double torch_cephes_polevl(), torch_cephes_p1evl(), torch_cephes_floor(),
-    torch_cephes_ldexp();
-static double tancot();
-#endif
 CEPHES_API double torch_cephes_MAXNUM;
 CEPHES_API double torch_cephes_PIO4;
 

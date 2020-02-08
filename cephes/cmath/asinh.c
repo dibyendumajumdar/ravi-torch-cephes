@@ -110,14 +110,6 @@ static unsigned short Q[] = {
 };
 #endif
 
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_sqrt ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_asinh( double );
-#else
-double torch_cephes_log(), torch_cephes_sqrt(), torch_cephes_polevl(),
-    torch_cephes_p1evl();
-#endif
 CEPHES_API double torch_cephes_LOGE2, torch_cephes_INFINITY;
 
 double torch_cephes_asinh(xx)

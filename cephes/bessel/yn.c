@@ -53,14 +53,6 @@ Copyright 1984, 1987, 2000 by Stephen L. Moshier
 */
 
 #include "mconf.h"
-#ifdef ANSIPROT
-CEPHES_API double torch_cephes_y0 ( double );
-CEPHES_API double torch_cephes_y1 ( double );
-CEPHES_API double torch_cephes_log ( double );
-CEPHES_API double torch_cephes_yn(int, double);
-#else
-double torch_cephes_y0(), torch_cephes_y1(), torch_cephes_log();
-#endif
 CEPHES_API double torch_cephes_MAXNUM, torch_cephes_MAXLOG;
 
 double torch_cephes_yn( n, x )
