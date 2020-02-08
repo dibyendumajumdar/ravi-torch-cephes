@@ -225,7 +225,7 @@ local function applyNotInPlace(input, output, func)
     local offset = input:storageOffset()
     -- A zero-based index is used to access the data.
     -- The end index is (startIndex + nElements - 1).
-    for i0 = offset - 1, offset - 1 + input:nElement() - 1 do
+    for i0 = offset, offset + input:nElement() - 1 do
         outputdata[i0] = func(inputdata[i0]) or outputdata[i0]
     end
     return output
@@ -245,7 +245,7 @@ local function mapNotInPlace(inputA, inputB, output, func)
     local offset = inputA:storageOffset()
     -- A zero-based index is used to access the data.
     -- The end index is (startIndex + nElements - 1).
-    for i0 = offset - 1, offset - 1 + inputA:nElement() - 1 do
+    for i0 = offset, offset + inputA:nElement() - 1 do
         outputdata[i0] = func(inputAdata[i0], inputBdata[i0]) or outputdata[i0]
     end
     return output
