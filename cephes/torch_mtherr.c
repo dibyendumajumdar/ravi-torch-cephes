@@ -106,3 +106,11 @@ int torch_cephes_mtherr( name, code )
      */
     return( 0 );
 }
+
+int torch_cephes_geterr() {
+    return torch_cephes_merror;
+}
+
+void torch_cephes_seterr(int code) {
+    torch_cephes_merror = code;
+}

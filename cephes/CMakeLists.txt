@@ -57,6 +57,26 @@ FILE(GLOB luasrc "luasrc/*.lua")
 # TODO: install the tests, too
 # ADD_SUBDIRECTORY(tests)
 
-ADD_TORCH_PACKAGE(cephes "${src}" "${luasrc}")
+ADD_TORCH_WRAP(cepheswrap cepheswrap.lua)
 
+
+ADD_LIBRARY(tcephes SHARED cepheswrap.c "${src}")
+target_include_directories(tcephes PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+set_target_properties(tcephes PROPERTIES PREFIX "")
+SET_TARGET_PROPERTIES(tcephes PROPERTIES
+  IMPORT_PREFIX "lib")
+IF(APPLE)
+  SET_TARGET_PROPERTIES(tcephes PROPERTIES
+    LINK_FLAGS "-undefined dynamic_lookup")
+ENDIF()
+SET_TARGET_PROPERTIES(tcephes PROPERTIES
+    DEFINE_SYMBOL "CEPHES_EXPORTS")
+IF(LUALIB)
+  TARGET_LINK_LIBRARIES(tcephes ${LUALIB} luaT)
+ENDIF()
+
+INSTALL(FILES ${luasrc} DESTINATION ${LUADIR}/cephes)
+INSTALL(TARGETS tcephes
+  LIBRARY DESTINATION ${LIBDIR}
+  RUNTIME DESTINATION ${LUA_BINDIR})
 
