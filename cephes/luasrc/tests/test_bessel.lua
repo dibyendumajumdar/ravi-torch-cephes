@@ -1,7 +1,7 @@
 
 require 'cephes'
 require 'torch'
-local ffi = require 'ffi'
+--local ffi = require 'ffi'
 local callTests = torch.TestSuite()
 local tester = torch.Tester()
 
